@@ -1,0 +1,2 @@
+class DaytsController < ApplicationController
+end
