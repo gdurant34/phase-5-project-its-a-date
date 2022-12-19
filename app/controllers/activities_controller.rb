@@ -1,10 +1,10 @@
-class DaytsController < ApplicationController
+class ActivitiesController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_uprocessable_entity_response
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     
     def index
-        dayts = Dayt.all
-        render json: dayts, status: :ok
+        activities = Activity.all
+        render json: activities, status: :ok
     end
     
     private
@@ -14,7 +14,7 @@ class DaytsController < ApplicationController
     end
     
     def render_not_found_response
-        render json: { errors: "Date not found" }, status: :not_found
+        render json: { errors: "Activity not found" }, status: :not_found
     end
     
 end
