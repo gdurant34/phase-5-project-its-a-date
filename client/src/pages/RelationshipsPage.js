@@ -2,7 +2,18 @@ import React from "react";
 
 
 function RelationshipsPage() {
-  return <h1>Relationship</h1>;
+  return(
+    <div>
+      <section>You & Romantic(name)</section>
+      <section>You & Friend(name)</section>
+      <section>You & Mother(name)</section>
+      <section>
+        <button>New Relationship</button>
+        <br/>
+        <button>Delete Relationship</button>
+      </section>
+    </div>
+  );
 };
 
 export default RelationshipsPage;
