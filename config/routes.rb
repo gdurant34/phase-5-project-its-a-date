@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :comments
+  resources :dayt_activities
+  resources :dayts
+  resources :activities
   resources :user_relationships
   resources :relationships
   resources :users
