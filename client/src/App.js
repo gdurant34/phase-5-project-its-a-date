@@ -1,6 +1,6 @@
 import './App.css';
 import './components/NavBar.css'
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -16,6 +16,35 @@ import LoginPage from './pages/LoginPage';
 
 function App() {
 
+  useEffect(() => {
+    // fetch('/dayts')
+    //   .then(r => r.json())
+    //   .then(console.log)
+
+    // fetch('/relationships')
+    //   .then(r => r.json())
+    //   .then(console.log)
+
+    // fetch('/activities')
+    //   .then(r => r.json())
+    //   .then(console.log)
+
+    // fetch('/comments')
+    //   .then(r => r.json())
+    //   .then(console.log)
+
+    // fetch('/dayt_activities')
+    //   .then(r => r.json())
+    //   .then(console.log)
+
+    // fetch('/user_relationships')
+    //   .then(r => r.json())
+    //   .then(console.log)
+
+    fetch('/users')
+      .then(r => r.json())
+      .then(console.log)
+  }, [])
 
   return (
     <div className="App">
@@ -23,9 +52,9 @@ function App() {
         <NavBar />
         <div className="container">
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/activities" element={<ActivityPage />} />
-            <Route path="/calendar" element={<Calendar />} />
+            <Route exact path="/" element={<HomePage />} />
+            <Route exact path="/activities" element={<ActivityPage />} />
+            <Route exact path="/calendar" element={<Calendar />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/dates" element={<DatesPage />} />
             <Route exact path="/relationships" element={<RelationshipsPage />} />
