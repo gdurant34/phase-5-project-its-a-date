@@ -1,8 +1,8 @@
 import React from "react";
 
 
-function Relationship() {
+function RelationshipsPage() {
   return <h1>Relationship</h1>;
 };
 
-export default Relationship;
+export default RelationshipsPage;
