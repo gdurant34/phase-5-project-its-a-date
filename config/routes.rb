@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   
   resources :comments
   resources :dayt_activities
-  resources :dayts
-  resources :activities
   resources :user_relationships
+  resources :activities
+  resources :dayts
   resources :relationships
   resources :users
   # Routing logic: fallback requests for React Router.
