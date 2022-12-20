@@ -1,7 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 
 
 function Home() {
+  const navigate = useNavigate()
+
+
+  const handleClick = () => {
+    navigate('user/new')
+  }
+
   return(
     <div>
       <section>
@@ -10,7 +19,7 @@ function Home() {
       </section>
       <section>
         <h4>Not a member?</h4>
-        <button>Create an account</button>
+        <button onClick={handleClick}>Create an account</button>
       </section>
       <section>
         <h3>Features</h3>
