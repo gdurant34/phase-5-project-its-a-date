@@ -1,9 +1,17 @@
 import React from "react";
 import ActivitiesDisplay from '../components/ActivitiesDisplay'
 import SearchActivities from "../components/SearchActivities";
+import { useNavigate } from 'react-router-dom';
 
 
 function ActivityPage() {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate("activity/new")
+  }
+
+
   return(
     <div>
       <section>
@@ -13,7 +21,7 @@ function ActivityPage() {
       <section>
         <h3>Search</h3>
         <SearchActivities />
-        <button>Create New</button>
+        <button onClick={handleClick}>Create New</button>
       </section>
     </div>
   );
