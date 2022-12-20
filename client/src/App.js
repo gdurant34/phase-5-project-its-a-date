@@ -1,6 +1,7 @@
 import './App.css';
 import './components/NavBar.css'
 import React, { useEffect } from 'react';
+import { RecoilRoot } from 'recoil';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -17,6 +18,8 @@ import NewUserForm from './components/NewUserForm';
 
 function App() {
 
+
+  
   useEffect(() => {
     // fetch('/dayts')
     //   .then(r => r.json())
@@ -48,7 +51,7 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
+    <RecoilRoot>
       <header className="App-header">
         <NavBar />
         <div className="container">
@@ -65,7 +68,7 @@ function App() {
           </Routes>
         </div>
       </header>
-    </div>
+    </RecoilRoot>
   );
 }
 
