@@ -1,5 +1,5 @@
 import React from "react";
-import ActivitiesDisplay from '../components/ActivitiesDisplay'
+import ActivitiesDisplay from '../components/ActivitiesDisplay';
 import SearchActivities from "../components/SearchActivities";
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ function ActivityPage() {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    navigate("activity/new")
+    navigate('new')
   }
 
 

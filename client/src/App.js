@@ -53,12 +53,10 @@ function App() {
         <NavBar />
         <div className="container">
           <Routes>
-            <Route exact path="/" element={<HomePage />} >
-              <Route exact path="user/new" element={<NewUserForm />}/>
-            </Route>
-            <Route exact path="/activities" element={<ActivityPage />} >
-              <Route exact path="activity/new" element={<NewActivityForm />} />
-            </Route>
+            <Route exact path="/" element={<HomePage />} />
+            <Route exact path="user/new" element={<NewUserForm />} />
+            <Route exact path="/activities" element={<ActivityPage />} />
+            <Route exact path="new" element={<NewActivityForm />} />
             <Route exact path="/calendar" element={<Calendar />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/dates" element={<DatesPage />} />
