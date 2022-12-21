@@ -2,7 +2,11 @@ import React from "react";
 // import { Card } from "semantic-ui-react";
 
 
-function ActivityCard() {
+function ActivityCard({ activity }) {
+
+    console.log(activity)
+
+
   return(
     <div>
     
