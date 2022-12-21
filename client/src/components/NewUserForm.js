@@ -1,12 +1,12 @@
 import React from 'react';
-import { useRecoilState } from 'recoil';
-import { currentUserState, userFormDataState, errorsState } from '../recoil/atoms';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { currentUserStateAtom, userFormDataStateAtom, errorsStateAtom } from '../recoil/atoms';
 import { useNavigate } from 'react-router-dom';
 
 const NewUserForm = () => {
-    const [userFormData, setUserFormData] = useRecoilState(userFormDataState);
-    const setCurrentUserState = useRecoilState(currentUserState);
-    const setErrorsState = useRecoilState(errorsState)
+    const [userFormData, setUserFormData] = useRecoilState(userFormDataStateAtom);
+    const setCurrentUserState = useSetRecoilState(currentUserStateAtom);
+    const setErrorsState = useSetRecoilState(errorsStateAtom)
 
     const navigate = useNavigate()
 
