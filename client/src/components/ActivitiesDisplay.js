@@ -15,16 +15,18 @@ function ActivitiesDisplay() {
       .then(r => r.json())
       .then(setActivities)
   }, [])
-  
+
   const cards = activities.map(activity => (
     <ActivityCard key={activity.id} activity={activity} />
   ))
 
-  return(
-    <CardGroup itemsPerRow={5} >
-      {cards}
-    </CardGroup>
-    );
+  return (
+    <div className="container">
+      <CardGroup itemsPerRow={5} >
+        {cards}
+      </CardGroup>
+    </div>
+  );
 };
 
 export default ActivitiesDisplay;

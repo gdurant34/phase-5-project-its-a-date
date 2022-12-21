@@ -21,11 +21,11 @@ function ActivityPage() {
 
   return(
     <div>
-      <section>
+      <section className='display'>
         <h3>Activities</h3>
         <ActivitiesDisplay />
       </section>
-      <section>
+      <section className='search'>
         <h3>Search</h3>
         <SearchActivities />
         <button onClick={onOpenModal}>Create an account</button>
