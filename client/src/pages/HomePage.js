@@ -1,17 +1,27 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+// import { useNavigate } from "react-router-dom";
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+import NewUserForm from '../components/NewUserForm';
+import './HomePage.css'
+
 
 
 
 function Home() {
-  const navigate = useNavigate()
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
+  // const navigate = useNavigate()
 
 
-  const handleClick = () => {
-    navigate('user/new')
-  }
+  // const handleClick = () => {
+  //   // navigate('user/new')
+  // }
 
-  return(
+  return (
     <div>
       <section>
         <h3>About</h3>
@@ -19,7 +29,10 @@ function Home() {
       </section>
       <section>
         <h4>Not a member?</h4>
-        <button onClick={handleClick}>Create an account</button>
+        <button onClick={onOpenModal}>Create an account</button>
+        <Modal open={open} onClose={onCloseModal} center>
+          <NewUserForm />
+        </Modal>
       </section>
       <section>
         <h3>Features</h3>
