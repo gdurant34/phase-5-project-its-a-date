@@ -45,9 +45,9 @@ function App() {
     //   .then(r => r.json())
     //   .then(console.log)
 
-    fetch('/users')
-      .then(r => r.json())
-      .then(console.log)
+    // fetch('/users')
+    //   .then(r => r.json())
+    //   .then(console.log)
   }, [])
 
   return (
