@@ -6,8 +6,48 @@ class DaytsController < ApplicationController
         dayts = Dayt.all
         render json: dayts, status: :ok
     end
+
+    def show
+        dayt = find_dayt
+        render json: dayt, status: :ok
+    end
+
+    def create
+        dayt = Dayt.create!(dayt_params)
+        render json: dayt, status: :created
+    end
+
+    def create
+        dayt = find_dayt
+        Dayt.create!(dayt_params)
+        render json: dayt, status: :created
+    end
+
+    def update
+        dayt = find_dayt
+        dayt.update!(dayt_params)
+        render json: dayt, status: :accepted
+    end
+
+    def destroy
+        dayt = find_dayt
+        dayt.destroy
+        head :no_content
+    end
     
     private
+
+    def find_dayt
+        Dayt.find(params[:id])
+    end
+
+    def dayt_params
+        params.permit(:time, :location, :confirmed, :category, :user_id, :relationship_id)
+    end
+
+    def find_dayt
+        Dayt.find(params[:id])
+    end
     
     def render_uprocessable_entity_response(exception)
         render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
