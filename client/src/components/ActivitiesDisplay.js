@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { Card } from "semantic-ui-react";
+import { CardGroup } from "semantic-ui-react";
 import ActivityCard from "./ActivityCard";
 import { useRecoilState } from 'recoil';
 import { activitiesStateAtom } from '../recoil/atoms'
+
 
 
 function ActivitiesDisplay() {
@@ -20,9 +21,9 @@ function ActivitiesDisplay() {
   ))
 
   return(
-    <Card.Group itemsPerRow={5}>
+    <CardGroup itemsPerRow={5} >
       {cards}
-    </Card.Group>
+    </CardGroup>
     );
 };
 
