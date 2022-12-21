@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState } from 'react';
 import ActivitiesDisplay from '../components/ActivitiesDisplay';
 import SearchActivities from "../components/SearchActivities";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from "react-router-dom";
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+import NewActivityForm from "../components/NewActivityForm";
 
 
 function ActivityPage() {
-  const navigate = useNavigate()
+  const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    navigate('new')
-  }
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+  // const navigate = useNavigate()
+
+  // const handleClick = () => {
+  //   navigate('new')
+  // }
 
 
   return(
@@ -21,7 +28,10 @@ function ActivityPage() {
       <section>
         <h3>Search</h3>
         <SearchActivities />
-        <button onClick={handleClick}>Create New</button>
+        <button onClick={onOpenModal}>Create an account</button>
+        <Modal open={open} onClose={onCloseModal} center>
+          <NewActivityForm />
+        </Modal>
       </section>
     </div>
   );
