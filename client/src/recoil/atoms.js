@@ -1,13 +1,13 @@
 import { atom } from "recoil";
 
 
-export const daytsState = atom({
-    key: 'daytsState',
+export const daytsStateAtom = atom({
+    key: 'daytsStateAtom',
     default: [],
 })
 
-export const userFormDataState = atom({
-    key: 'userFormDataState',
+export const userFormDataStateAtom = atom({
+    key: 'userFormDataStateAtom',
     default: {
         firstName: '',
         lastName: '',
@@ -18,12 +18,17 @@ export const userFormDataState = atom({
 })
 
 
-export const currentUserState = atom({
-    key: 'currentUserState',
+export const currentUserStateAtom = atom({
+    key: 'currentUserStateAtom',
     default: null,
 })
 
-export const errorsState = atom({
-    key: 'errorsState',
+export const errorsStateAtom = atom({
+    key: 'errorsStateAtom',
+    default: [],
+})
+
+export const activitiesStateAtom = atom({
+    key: 'activitiesStateAtom',
     default: [],
 })
