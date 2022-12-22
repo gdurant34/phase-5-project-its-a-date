@@ -32,3 +32,8 @@ export const activitiesStateAtom = atom({
     key: 'activitiesStateAtom',
     default: [],
 })
+
+export const datesStateAtom = atom({
+    key: 'datesStateAtom',
+    default: [],
+})

@@ -4,7 +4,7 @@ import './ActivityCard.css'
 
 function ActivityCard({ activity }) {
 
-    console.log(activity)
+    // console.log(activity)
 
 
     return (
