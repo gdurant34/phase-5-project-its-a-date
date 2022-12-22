@@ -33,9 +33,9 @@ dayt2 = Dayt.create(time: '7pm', location: '11 Midway St. Seattle WA 98132', con
 dayt3 = Dayt.create(time: '4pm', location: '101 Louis St. Seattle WA 98412', confirmed: false, category: 'Walk', user: user3, relationship: relationship2)
 
 puts "Seeding activies..."
-activity1 = Activity.create(title: 'Horse back riding', category: 'Active', location: '333 Main St Dallas, TX 76223', description: 'This is a place you can pay to ride a horse for 2 hours', image: 'https://tinyurl.com/bdzm6rpk', est_price: 35, user: user2, relationship: relationship2)
-activity2 = Activity.create(title: 'Skatig along the waterfront', category: 'Active', location: '333 Boarderline St Seattle, WA 76223', description: 'Skate along the waterfront', image: 'https://tinyurl.com/yc7u48pk', est_price: 0, user: user3, relationship: relationship1)
-activity3 = Activity.create(title: 'Dinner at Sushi', category: 'Dinner', location: '333 Main St New York, NY 12542', description: '5 course sushi dinner', image: 'https://tinyurl.com/4c5ubf2r', est_price: 125, user: user1, relationship: relationship2)
+activity1 = Activity.create(title: 'Horse back riding', category: 'Active', location: '333 Main St Dallas, TX 76223', description: 'This is a place you can pay to ride a horse for 2 hours', image: 'https://t.ly/m-pu', est_price: 35, user: user2, relationship: relationship2)
+activity2 = Activity.create(title: 'Skatig along the waterfront', category: 'Active', location: '333 Boarderline St Seattle, WA 76223', description: 'Skate along the waterfront', image: 'https://t.ly/EyEr', est_price: 0, user: user3, relationship: relationship1)
+activity3 = Activity.create(title: 'Dinner at Sushi', category: 'Dinner', location: '333 Main St New York, NY 12542', description: '5 course sushi dinner', image: 'https://t.ly/Vpls', est_price: 125, user: user1, relationship: relationship2)
 
 puts "Seeding userRelationships..."
 userRelationship1 = UserRelationship.create(user: user1, relationship: relationship2)
