@@ -17,12 +17,6 @@ class DaytsController < ApplicationController
         render json: dayt, status: :created
     end
 
-    def create
-        dayt = find_dayt
-        Dayt.create!(dayt_params)
-        render json: dayt, status: :created
-    end
-
     def update
         dayt = find_dayt
         dayt.update!(dayt_params)
@@ -42,7 +36,7 @@ class DaytsController < ApplicationController
     end
 
     def dayt_params
-        params.permit(:time, :location, :confirmed, :category, :user_id, :relationship_id)
+        params[:dayt].permit(:time, :location, :confirmed, :category, :user_id, :relationship_id)
     end
 
     def find_dayt

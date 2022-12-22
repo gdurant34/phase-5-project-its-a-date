@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ActivitiesDisplay from '../components/ActivitiesDisplay'
 import DateDisplay from "../components/DateDisplay";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import NewDateForm from '../components/NewDateForm';
-
+import { dateModalStateAtom } from '../recoil/atoms';
+import { useRecoilState } from 'recoil'
 
 
 
 function DatesPage() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useRecoilState(dateModalStateAtom);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);

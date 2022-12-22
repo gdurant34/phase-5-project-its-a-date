@@ -31,6 +31,18 @@ export const activityFormDataStateAtom = atom({
     },
 })
 
+export const dateFormDataStateAtom = atom({
+    key: 'dateFormDataStateAtom',
+    default: {
+        time: '',
+        location: '',
+        confirmed: '',
+        category: '',
+        userId: '',
+        relationshipId: ''
+    },
+})
+
 
 export const currentUserStateAtom = atom({
     key: 'currentUserStateAtom',
@@ -52,7 +64,7 @@ export const datesStateAtom = atom({
     default: [],
 })
 
-// modals open close
+// modals open/close
 
 export const userModalStateAtom = atom({
     key: 'userModalStateAtom',
@@ -62,5 +74,10 @@ export const userModalStateAtom = atom({
 export const activityModalStateAtom = atom({
     key: 'activityModalStateAtom',
     default: false,
+})
+
+export const dateModalStateAtom = atom({
+    key: 'dateModalStateAtom',
+    default: false, 
 })
 

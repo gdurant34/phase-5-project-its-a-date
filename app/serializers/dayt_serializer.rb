@@ -3,4 +3,5 @@ class DaytSerializer < ActiveModel::Serializer
   belongs_to :user
   belongs_to :relationship
   has_many :activities
+  has_many :comments
 end
