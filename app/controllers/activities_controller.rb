@@ -36,7 +36,7 @@ class ActivitiesController < ApplicationController
     end
 
     def activity_params
-        params.permit(:title, :category, :location, :description, :image, :est_price, :user_id, :relationship_id)
+        params[:activity].permit(:title, :category, :location, :description, :image, :est_price, :user_id, :relationship_id)
     end
     
     def render_uprocessable_entity_response(exception)

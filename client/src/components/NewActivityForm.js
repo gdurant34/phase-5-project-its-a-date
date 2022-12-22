@@ -1,13 +1,13 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { activityModalStateAtom, activityFormDataStateAtom, activitiesStateAtom} from '../recoil/atoms';
+import { activityModalStateAtom, activityFormDataStateAtom, activitiesStateAtom } from '../recoil/atoms';
 
 
 
 const NewActivityForm = () => {
     const [activityFormData, setActivityFormData] = useRecoilState(activityFormDataStateAtom);
     const setOpen = useSetRecoilState(activityModalStateAtom)
-    const setActivities = useSetRecoilState(activitiesStateAtom)
+    const [activities, setActivities] = useRecoilState(activitiesStateAtom)
 
     const resetForm = () => {
         setActivityFormData((activityFormData) => ({
@@ -16,7 +16,9 @@ const NewActivityForm = () => {
             location: '',
             description: '',
             image: '',
-            estPrice: 0
+            estPrice: '',
+            userId: '',
+            relationshipId: ''
         }))
     }
 
@@ -38,6 +40,8 @@ const NewActivityForm = () => {
             description: activityFormData.description,
             image: activityFormData.image,
             est_price: activityFormData.estPrice,
+            user_id: activityFormData.userId,
+            relationship_id: activityFormData.relationshipId
         }
         fetch(`/activities`, {
             method: "POST",
@@ -45,7 +49,7 @@ const NewActivityForm = () => {
             body: JSON.stringify(activity)
         })
             .then(r => r.json())
-            .then(setActivities)
+            .then(newActivity => setActivities([...activities, newActivity]))
             .then(setOpen(false))
             .then(resetForm())
     }
@@ -75,7 +79,15 @@ const NewActivityForm = () => {
                 </div>
                 <div>
                     <label htmlFor="est-price">Estimated Price:</label>
-                    <input type="integer" name="est-price" value={activityFormData.estPrice} onChange={(e) => handleChange(e)} />
+                    <input type="text" name="estPrice" value={activityFormData.estPrice} onChange={(e) => handleChange(e)} />
+                </div>
+                <div>
+                    <label htmlFor="user">User:</label>
+                    <input type="text" name="userId" value={activityFormData.userId} onChange={(e) => handleChange(e)} />
+                </div>
+                <div>
+                    <label htmlFor="relationship">Relationship:</label>
+                    <input type="text" name="relationshipId" value={activityFormData.relationshipId} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
                     <input className='button' type="submit" />

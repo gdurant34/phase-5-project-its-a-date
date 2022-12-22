@@ -25,9 +25,9 @@ export const activityFormDataStateAtom = atom({
         location: '',
         description: '',
         image: '',
-        estPrice: 0
-        // userId: null,
-        // relationshipId: null
+        estPrice: '',
+        userId: '',
+        relationshipId: ''
     },
 })
 

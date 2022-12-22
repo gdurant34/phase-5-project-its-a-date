@@ -14,9 +14,9 @@ function ActivitiesDisplay() {
     fetch('/activities')
       .then(r => r.json())
       .then(setActivities)
-  }, [])
+  }, [activitiesStateAtom])
 
-  console.log(activities)
+  // console.log(activities)
 
   const cards = activities.map(activity => (
     <ActivityCard key={activity.id} activity={activity} />
