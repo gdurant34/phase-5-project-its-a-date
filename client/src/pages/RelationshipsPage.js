@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import NewRelationshipForm from '../components/NewRelationshipForm'
+import { useRecoilState } from 'recoil'
+import { relationshipModalStateAtom } from '../recoil/atoms'
+
 
 
 function RelationshipsPage() {
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useRecoilState(relationshipModalStateAtom);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);

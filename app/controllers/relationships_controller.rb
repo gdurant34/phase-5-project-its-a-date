@@ -36,7 +36,7 @@ class RelationshipsController < ApplicationController
     end
 
     def relationship_params
-        params.permit(:relationship_type)
+        params[:relationship].permit(:relationship_type, :name, :email)
     end
     
     def render_uprocessable_entity_response(exception)

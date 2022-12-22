@@ -43,6 +43,15 @@ export const dateFormDataStateAtom = atom({
     },
 })
 
+export const relationshipFormDataStateAtom = atom({
+    key: 'relationshipFormDataStateAtom',
+    default: {
+        relationshipType: '',
+        name: '',
+        email: ''
+    },
+})
+
 
 export const currentUserStateAtom = atom({
     key: 'currentUserStateAtom',
@@ -64,6 +73,11 @@ export const datesStateAtom = atom({
     default: [],
 })
 
+export const relationshipsStateAtom = atom({
+    key: 'relationshipsStateAtom',
+    default: [],
+})
+
 // modals open/close
 
 export const userModalStateAtom = atom({
@@ -80,4 +94,15 @@ export const dateModalStateAtom = atom({
     key: 'dateModalStateAtom',
     default: false, 
 })
+
+export const relationshipModalStateAtom = atom({
+    key: 'relationshipModalStateAtom',
+    default: false, 
+})
+
+
+// dropdown state
+
+
+
 

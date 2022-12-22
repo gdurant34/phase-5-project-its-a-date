@@ -4,6 +4,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 
 
 const NewDateForm = () => {
+    
     const [dateFormData, setDateFormData] = useRecoilState(dateFormDataStateAtom);
     const setOpen = useSetRecoilState(dateModalStateAtom)
     const [dates, setDates] = useRecoilState(datesStateAtom)
