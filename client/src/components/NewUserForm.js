@@ -29,7 +29,7 @@ const NewUserForm = () => {
         }));
     }
 
-    function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const user = {
             first_name: userFormData.firstName,

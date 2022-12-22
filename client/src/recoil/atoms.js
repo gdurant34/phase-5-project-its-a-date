@@ -17,6 +17,20 @@ export const userFormDataStateAtom = atom({
     },
 })
 
+export const activityFormDataStateAtom = atom({
+    key: 'activityFormDataStateAtom',
+    default: {
+        title: '',
+        category: '',
+        location: '',
+        description: '',
+        image: '',
+        estPrice: 0
+        // userId: null,
+        // relationshipId: null
+    },
+})
+
 
 export const currentUserStateAtom = atom({
     key: 'currentUserStateAtom',
@@ -38,9 +52,15 @@ export const datesStateAtom = atom({
     default: [],
 })
 
-// homepage
+// modals open close
 
 export const userModalStateAtom = atom({
     key: 'userModalStateAtom',
     default: false,
 })
+
+export const activityModalStateAtom = atom({
+    key: 'activityModalStateAtom',
+    default: false,
+})
+

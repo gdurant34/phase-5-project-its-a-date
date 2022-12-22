@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ActivitiesDisplay from '../components/ActivitiesDisplay';
 import SearchActivities from "../components/SearchActivities";
-// import { useNavigate } from "react-router-dom";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
-import NewActivityForm from "../components/NewActivityForm";
+import NewActivityForm from "../components/NewActivityForm"
+import { useRecoilState } from 'recoil';
+import { activityModalStateAtom } from '../recoil/atoms';
+
 
 
 function ActivityPage() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useRecoilState(activityModalStateAtom);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -23,7 +25,7 @@ function ActivityPage() {
       <section className='search'>
         <h3>Search</h3>
         <SearchActivities />
-        <button onClick={onOpenModal}>Create an account</button>
+        <button onClick={onOpenModal}>Add New</button>
         <Modal open={open} onClose={onCloseModal} center>
           <NewActivityForm />
         </Modal>
