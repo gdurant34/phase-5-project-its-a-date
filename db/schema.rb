@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 2022_12_19_033035) do
 
   create_table "relationships", force: :cascade do |t|
     t.string "relationship_type"
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -23,9 +23,9 @@ user2 = User.create(first_name: 'Daniel', last_name: 'Jones', user_name: 'djones
 user3 = User.create(first_name: 'Ann', last_name: 'Williams', user_name: 'awilliams', age: 28, email: 'awilliams@gmail.com')
 
 puts "Seeding relationships..."
-relationship1 = Relationship.create(relationship_type:'Romantic')
-relationship2 = Relationship.create(relationship_type:'Friend')
-relationship3 = Relationship.create(relationship_type:'Mother')
+relationship1 = Relationship.create(relationship_type:'Romantic', name: 'Joshua', email: 'jmclean@gmail.com')
+relationship2 = Relationship.create(relationship_type:'Friend', name: 'Julia', email: 'jsmith@gmail.com')
+relationship3 = Relationship.create(relationship_type:'Mother', name:'Jayme', email: 'jdurant@gmail.com')
 
 puts "Seeding dayts..."
 dayt1 = Dayt.create(time: '5pm', location: '101 Broadway St. Seattle WA 98133', confirmed: true, category: 'Movie', user: user2 , relationship: relationship1)
