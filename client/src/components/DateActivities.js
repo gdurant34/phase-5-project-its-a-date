@@ -5,11 +5,11 @@ function DateActivities({ activity }) {
 
     return (
         <ul>
-            <li>{activity.title}</li>
+            <li>Activity: {activity.title}</li>
             <br />
-            <li>{activity.description}</li>
+            <li>Description: {activity.description}</li>
             <br />
-            <li>{activity.est_price}</li>
+            <li>Estimated Cost: ${activity.est_price}</li>
         </ul>
     );
 };
