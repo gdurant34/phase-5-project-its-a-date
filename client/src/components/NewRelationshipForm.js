@@ -66,15 +66,18 @@ const NewRelationshipForm = () => {
         <div className="New-relationship-card">
             <form onSubmit={handleSubmit} >
                 <div>
-                    <label htmlFor="relationshipType">Relationship Type:</label>
+                    <h4>Relationship Type</h4>
+                    <label htmlFor="relationshipType" />
                     <NewRelationshipDropdown handleDropdownChange={handleDropdownChange} />
                 </div>
                 <div>
-                    <label htmlFor="name">Name:</label>
+                    <h4>Name</h4>
+                    <label htmlFor="name" />
                     <input type="text" name="name" value={relationshipFormData.name} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="email">Email:</label>
+                    <h4>Email</h4>
+                    <label htmlFor="email" />
                     <input type="text" name="email" value={relationshipFormData.email} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
