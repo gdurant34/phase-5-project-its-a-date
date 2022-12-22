@@ -12,11 +12,6 @@ function ActivityPage() {
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-  // const navigate = useNavigate()
-
-  // const handleClick = () => {
-  //   navigate('new')
-  // }
 
 
   return(
