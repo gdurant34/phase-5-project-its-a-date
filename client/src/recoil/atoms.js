@@ -37,3 +37,10 @@ export const datesStateAtom = atom({
     key: 'datesStateAtom',
     default: [],
 })
+
+// homepage
+
+export const userModalStateAtom = atom({
+    key: 'userModalStateAtom',
+    default: false,
+})

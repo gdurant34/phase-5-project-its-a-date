@@ -1,70 +1,76 @@
 import React from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import { currentUserStateAtom, userFormDataStateAtom, errorsStateAtom } from '../recoil/atoms';
-import { useNavigate } from 'react-router-dom';
+import { userModalStateAtom, userFormDataStateAtom } from '../recoil/atoms';
 
 const NewUserForm = () => {
     const [userFormData, setUserFormData] = useRecoilState(userFormDataStateAtom);
-    const setCurrentUserState = useSetRecoilState(currentUserStateAtom);
-    const setErrorsState = useSetRecoilState(errorsStateAtom)
+    // const setCurrentUserState = useSetRecoilState(currentUserStateAtom);
+    // const setErrorsState = useSetRecoilState(errorsStateAtom)
+    const setOpen = useSetRecoilState(userModalStateAtom)
 
-    const navigate = useNavigate()
+
+    const resetForm = () => {
+        setUserFormData((userFormData) => ({
+            firstName: '',
+            lastName: '',
+            userName: '',
+            age: '',
+            email: ''
+        }))
+    }
+
 
     const handleChange = (e) => {
         const value = e.target.value;
         const name = e.target.name;
         setUserFormData((userFormData) => ({
             ...userFormData,
-            [name] : value
+            [name]: value
         }));
     }
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
         const user = {
             first_name: userFormData.firstName,
             last_name: userFormData.lastName,
             age: userFormData.age,
-            username: userFormData.userName,
+            user_name: userFormData.userName,
             email: userFormData.email
         }
-        fetch(`/users`,{
+        fetch(`/users`, {
             method: "POST",
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify(user)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
         })
-        .then(res => {
-            if(res.ok){
-                res.json().then(setCurrentUserState)
-            } else {
-                res.json().then( e => setErrorsState(Object.entries(e.error).flat()))
-            }
-        })
-        .then(navigate('/'))
+            .then(r => r.json())
+            .then(console.log)
+            .then(setOpen(false))
+            .then(resetForm())
     }
-    
-    return(
+
+    return (
         <div className="New-user-card">
             <form onSubmit={handleSubmit} >
                 <div>
                     <label htmlFor="firstName">First Name:</label>
-                    <input type="text" name="firstName" value={userFormData.firstName} onChange={(e)=> handleChange(e)} />
+                    <input type="text" name="firstName" value={userFormData.firstName} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
                     <label htmlFor="lastName">Last Name:</label>
-                    <input type="text" name="lastName" value={userFormData.lastName} onChange={(e)=> handleChange(e)} />
+                    <input type="text" name="lastName" value={userFormData.lastName} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
                     <label htmlFor="userName">Username:</label>
-                    <input type="text" name="userName" value={userFormData.userName} onChange={(e)=> handleChange(e)} />
+                    <input type="text" name="userName" value={userFormData.userName} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
                     <label htmlFor="age">Age:</label>
-                    <input type="integer" name="age" value={userFormData.age} onChange={(e)=> handleChange(e)} />
+                    <input type="integer" name="age" value={userFormData.age} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
                     <label htmlFor="email">Email:</label>
-                    <input type="string" name="email" value={userFormData.email} onChange={(e)=> handleChange(e)} />
+                    <input type="string" name="email" value={userFormData.email} onChange={(e) => handleChange(e)} />
                 </div>
                 {/* <div>
                     <label htmlFor="password">Password:</label>
@@ -79,7 +85,7 @@ const NewUserForm = () => {
                 </div>
             </form>
         </div>
-        )
+    )
 }
 
 export default NewUserForm;

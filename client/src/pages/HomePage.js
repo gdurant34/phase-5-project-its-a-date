@@ -4,22 +4,17 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import NewUserForm from '../components/NewUserForm';
 import './HomePage.css'
+import { useRecoilState } from 'recoil';
+import { userModalStateAtom } from '../recoil/atoms'
 
 
 
 
 function Home() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useRecoilState(userModalStateAtom);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
-
-  // const navigate = useNavigate()
-
-
-  // const handleClick = () => {
-  //   // navigate('user/new')
-  // }
 
   return (
     <div>
