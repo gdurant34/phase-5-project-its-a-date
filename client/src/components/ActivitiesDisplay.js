@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { CardGroup } from "semantic-ui-react";
 import ActivityCard from "./ActivityCard";
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { activitiesStateAtom } from '../recoil/atoms'
 
 
