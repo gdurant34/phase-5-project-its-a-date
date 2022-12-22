@@ -4,4 +4,5 @@ class User < ApplicationRecord
     has_many :activities
     has_many :dayts
     has_many :comments
+    validates :email, uniqueness: true
 end
