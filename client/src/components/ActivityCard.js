@@ -4,6 +4,7 @@ import { Modal } from 'react-responsive-modal';
 import './ActivityCard.css'
 import UpdateActivityForm from "./UpdateActivityForm";
 
+
 function ActivityCard({ activity }) {
     
     const [open, setOpen] = useState(false);
