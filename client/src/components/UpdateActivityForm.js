@@ -62,35 +62,43 @@ const UpdateActivityForm = ({ activity, setOpen, open }) => {
         <div className="New-date-card">
             <form onSubmit={handleSubmit} >
                 <div>
-                    <label htmlFor="title">Title:</label>
+                    <h5>Title:</h5>
+                    <label htmlFor="title" />
                     <input type="text" name="title" value={activityFormData.title} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="category">Category:</label>
+                    <h5>Category:</h5>
+                    <label htmlFor="category" />
                     <input type="text" name="category" value={activityFormData.category} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="location">Location:</label>
+                    <h5>Location:</h5>
+                    <label htmlFor="location" />
                     <input type="text" name="location" value={activityFormData.location} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="description">Description:</label>
+                    <h5>Description:</h5>
+                    <label htmlFor="description" />
                     <input type="text" name="description" value={activityFormData.description} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="image">Image:</label>
+                    <h5>Image:</h5>
+                    <label htmlFor="image" />
                     <input type="text" name="image" value={activityFormData.image} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="est-price">Estimated Price:</label>
+                    <h5>Estimated Price:</h5>
+                    <label htmlFor="est-price" />
                     <input type="text" name="estPrice" value={activityFormData.estPrice} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="user">User:</label>
+                    <h5>User:</h5>
+                    <label htmlFor="user" />
                     <input type="text" name="userId" value={activityFormData.userId} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="relationship">Relationship:</label>
+                    <h5>Relationship:</h5>
+                    <label htmlFor="relationship" />
                     <input type="text" name="relationshipId" value={activityFormData.relationshipId} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>

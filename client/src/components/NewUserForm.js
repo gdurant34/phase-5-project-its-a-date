@@ -53,23 +53,28 @@ const NewUserForm = () => {
         <div className="New-user-card">
             <form onSubmit={handleSubmit} >
                 <div>
-                    <label htmlFor="firstName">First Name:</label>
+                    <h5>First Name:</h5>
+                    <label htmlFor="firstName" />
                     <input type="text" name="firstName" value={userFormData.firstName} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="lastName">Last Name:</label>
+                    <h5>Last Name:</h5>
+                    <label htmlFor="lastName" />
                     <input type="text" name="lastName" value={userFormData.lastName} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="userName">Username:</label>
+                    <h5>Username:</h5>
+                    <label htmlFor="userName" />
                     <input type="text" name="userName" value={userFormData.userName} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="age">Age:</label>
+                    <h5>Age:</h5>
+                    <label htmlFor="age" />
                     <input type="integer" name="age" value={userFormData.age} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="email">Email:</label>
+                    <h5>Email:</h5>
+                    <label htmlFor="email" />
                     <input type="string" name="email" value={userFormData.email} onChange={(e) => handleChange(e)} />
                 </div>
                 {/* <div>

@@ -4,7 +4,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 
 
 const NewDateForm = () => {
-    
+
     const [dateFormData, setDateFormData] = useRecoilState(dateFormDataStateAtom);
     const setOpen = useSetRecoilState(dateModalStateAtom)
     const [dates, setDates] = useRecoilState(datesStateAtom)
@@ -59,27 +59,33 @@ const NewDateForm = () => {
         <div className="New-date-card">
             <form onSubmit={handleSubmit} >
                 <div>
-                    <label htmlFor="time">Time:</label>
+                    <h5>Time:</h5>
+                    <label htmlFor="time" />
                     <input type="text" name="time" value={dateFormData.time} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="location">Location:</label>
+                    <h5>Location:</h5>
+                    <label htmlFor="location" />
                     <input type="text" name="location" value={dateFormData.location} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="confirmed">Confirmed:</label>
+                    <h5>Confirmed:</h5>
+                    <label htmlFor="confirmed" />
                     <input type="text" name="confirmed" value={dateFormData.confirmed} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="category">Category:</label>
+                    <h5>Category:</h5>
+                    <label htmlFor="category" />
                     <input type="text" name="category" value={dateFormData.category} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="user-id">User:</label>
+                    <h5>User:</h5>
+                    <label htmlFor="user-id" />
                     <input type="text" name="userId" value={dateFormData.userId} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="relationship-id">Relationship:</label>
+                    <h5>Relationship:</h5>
+                    <label htmlFor="relationship-id" />
                     <input type="text" name="relationshipId" value={dateFormData.relationshipId} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
