@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { datesStateAtom, dateFormDataStateAtom, dateModalStateAtom } from "../recoil/atoms";
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
@@ -8,6 +8,10 @@ const NewDateForm = () => {
     const [dateFormData, setDateFormData] = useRecoilState(dateFormDataStateAtom);
     const setOpen = useSetRecoilState(dateModalStateAtom)
     const [dates, setDates] = useRecoilState(datesStateAtom)
+
+    useEffect(() => {
+        resetForm();
+    }, [])
 
     const resetForm = () => {
         setDateFormData((dateFormData) => ({

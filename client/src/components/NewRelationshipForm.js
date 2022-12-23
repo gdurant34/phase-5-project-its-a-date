@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NewRelationshipDropdown from './NewRelationshipDropdown';
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import {
@@ -13,6 +13,10 @@ const NewRelationshipForm = () => {
     const [relationshipFormData, setRelationshipFormData] = useRecoilState(relationshipFormDataStateAtom);
     const setOpen = useSetRecoilState(relationshipModalStateAtom)
     const [relationships, setRelationships] = useRecoilState(relationshipsStateAtom)
+
+    useEffect(() => {
+        resetForm();
+    }, [])
 
     const resetForm = () => {
         setRelationshipFormData((relationshipFormData) => ({

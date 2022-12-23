@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { activityModalStateAtom, activityFormDataStateAtom, activitiesStateAtom } from '../recoil/atoms';
 
@@ -8,6 +8,10 @@ const NewActivityForm = () => {
     const [activityFormData, setActivityFormData] = useRecoilState(activityFormDataStateAtom);
     const setOpen = useSetRecoilState(activityModalStateAtom)
     const [activities, setActivities] = useRecoilState(activitiesStateAtom)
+
+    useEffect(() => {
+        resetForm();
+    }, [])
 
     const resetForm = () => {
         setActivityFormData((activityFormData) => ({
