@@ -31,7 +31,7 @@ const UpdateActivityForm = ({ activity, setOpen, open }) => {
         }))
     }
 
-    function onUpdatedActivity(resActivity) {
+    const onUpdatedActivity = (resActivity) => {
         const updatedActivities = activities.map(activity => activity.id === resActivity.id ? resActivity : activity);
         setActivities(updatedActivities);
     }
