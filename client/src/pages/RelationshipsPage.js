@@ -4,6 +4,7 @@ import { Modal } from 'react-responsive-modal';
 import NewRelationshipForm from '../components/NewRelationshipForm'
 import { useRecoilState } from 'recoil'
 import { relationshipModalStateAtom } from '../recoil/atoms'
+import RelationshipDisplay from '../components/RelationshipDisplay';
 
 
 
@@ -16,9 +17,9 @@ function RelationshipsPage() {
 
   return(
     <div>
-      <section>You & Romantic(name)</section>
-      <section>You & Friend(name)</section>
-      <section>You & Mother(name)</section>
+      <section>
+        <RelationshipDisplay />
+      </section>
       <section>
       <button onClick={onOpenModal}>New Relationship</button>
         <Modal open={open} onClose={onCloseModal} center>
