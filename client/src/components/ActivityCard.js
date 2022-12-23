@@ -3,12 +3,15 @@ import { Card, Image } from "semantic-ui-react";
 import { Modal } from 'react-responsive-modal';
 import './ActivityCard.css'
 import UpdateActivityForm from "./UpdateActivityForm";
+import DeleteActivityForm from "./DeleteActivityForm";
 
 
 function ActivityCard({ activity }) {
     
-    const [open, setOpen] = useState(false);
-    const handleModal = () => setOpen(!open);
+    const [openEdit, setEditOpen] = useState(false);
+    const [openDelete, setDeleteOpen] = useState(false);
+    const handleEditModal = () => setEditOpen(!openEdit);
+    const handleDeleteModal = () => setDeleteOpen(!openDelete)
 
 
     return (
@@ -22,9 +25,15 @@ function ActivityCard({ activity }) {
                 />
             </section>
             <section>
-                <button onClick={handleModal}>Edit</button>
-                <Modal open={open} onClose={handleModal} center>
-                    <UpdateActivityForm activity={activity} setOpen={setOpen} open={open} />
+                <button onClick={handleEditModal}>Edit</button>
+                <Modal open={openEdit} onClose={handleEditModal} center>
+                    <UpdateActivityForm activity={activity} setOpen={setEditOpen} open={openEdit} />
+                </Modal>
+            </section>
+            <section>
+                <button onClick={handleDeleteModal}>X</button>
+                <Modal open={openDelete} onClose={handleDeleteModal} center>
+                    <DeleteActivityForm activity={activity} setOpen={setDeleteOpen} open={openDelete} />
                 </Modal>
             </section>
         </Card>
