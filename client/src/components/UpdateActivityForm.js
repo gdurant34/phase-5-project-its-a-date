@@ -1,26 +1,26 @@
-import React from "react";
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { activityUpdateModalStateAtom, activityFormDataStateAtom, activitiesStateAtom } from '../recoil/atoms';
+import React, { useEffect } from "react";
+import { useRecoilState } from 'recoil';
+import { activityFormDataStateAtom, activitiesStateAtom } from '../recoil/atoms';
 
 
 
-const UpdateActivityForm = () => {
+const UpdateActivityForm = ({ activity, setOpen, open }) => {
+
     const [activityFormData, setActivityFormData] = useRecoilState(activityFormDataStateAtom);
-    const setOpen = useSetRecoilState(activityUpdateModalStateAtom)
     const [activities, setActivities] = useRecoilState(activitiesStateAtom)
 
-    const resetForm = () => {
-        setActivityFormData((activityFormData) => ({
-            title: '',
-            category: '',
-            location: '',
-            description: '',
-            image: '',
-            estPrice: '',
-            userId: '',
-            relationshipId: ''
-        }))
-    }
+    useEffect(() => {
+        setActivityFormData({
+            title: activity.title,
+            category: activity.category,
+            location: activity.location,
+            description: activity.description,
+            image: activity.image,
+            estPrice: activity.est_price,
+            userId: activity.user.id,
+            relationshipId: activity.relationship.id
+        })
+    }, [])
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -31,9 +31,14 @@ const UpdateActivityForm = () => {
         }))
     }
 
+    function onUpdatedActivity(resActivity) {
+        const updatedActivities = activities.map(activity => activity.id === resActivity.id ? resActivity : activity);
+        setActivities(updatedActivities);
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const activity = {
+        const updatedActivity = {
             title: activityFormData.title,
             category: activityFormData.category,
             location: activityFormData.location,
@@ -43,15 +48,14 @@ const UpdateActivityForm = () => {
             user_id: activityFormData.userId,
             relationship_id: activityFormData.relationshipId
         }
-        fetch(`/activities`, {
-            method: "PATCH",
+        fetch(`/activities/${activity.id}`, {
+            method: "PUT",
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(activity)
+            body: JSON.stringify(updatedActivity)
         })
             .then(r => r.json())
-            .then(newActivity => setActivities([...activities, newActivity]))
-            .then(setOpen(false))
-            .then(resetForm())
+            .then(resActivity => onUpdatedActivity(resActivity))
+            .then(setOpen(!open))
     }
 
     return (

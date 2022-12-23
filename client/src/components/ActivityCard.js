@@ -1,18 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Image } from "semantic-ui-react";
 import { Modal } from 'react-responsive-modal';
 import './ActivityCard.css'
-import { activityUpdateModalStateAtom } from '../recoil/atoms'
-import { useRecoilState } from 'recoil'
-import UpdateActivityForm from "./UpdateActivityFrom";
+import UpdateActivityForm from "./UpdateActivityForm";
 
 function ActivityCard({ activity }) {
-    const [open, setOpen] = useRecoilState(activityUpdateModalStateAtom);
-
-    const onOpenModal = () => setOpen(true);
-    const onCloseModal = () => setOpen(false);
-
-    // console.log(activity)
+    
+    const [open, setOpen] = useState(false);
+    const handleModal = () => setOpen(!open);
 
 
     return (
@@ -26,9 +21,9 @@ function ActivityCard({ activity }) {
                 />
             </section>
             <section>
-                <button onClick={onOpenModal}>Edit</button>
-                <Modal open={open} onClose={onCloseModal} center>
-                    <UpdateActivityForm />
+                <button onClick={handleModal}>Edit</button>
+                <Modal open={open} onClose={handleModal} center>
+                    <UpdateActivityForm activity={activity} setOpen={setOpen} open={open} />
                 </Modal>
             </section>
         </Card>
