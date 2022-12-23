@@ -3,12 +3,15 @@ import { Card } from "semantic-ui-react";
 import './RelationshipCard.css'
 import { Modal } from 'react-responsive-modal';
 import UpdateRelationshipForm from "./UpdateRelationshipFrom";
+import DeleteRelationshipForm from "./DeleteRelationshipForm";
 
 
 function RelationshipCard({ relationship,  }) {
 
-    const [open, setOpen] = useState(false);
-    const handleModal = () => setOpen(!open);
+    const [openEdit, setEditOpen] = useState(false);
+    const [openDelete, setDeleteOpen] = useState(false);
+    const handleEditModal = () => setEditOpen(!openEdit);
+    const handleDeleteModal = () => setDeleteOpen(!openDelete)
 
     return (
         <Card>
@@ -20,9 +23,15 @@ function RelationshipCard({ relationship,  }) {
                 />
             </section>
             <section>
-                <button onClick={handleModal}>Edit</button>
-                <Modal open={open} onClose={handleModal} center>
-                    <UpdateRelationshipForm relationship={relationship} setOpen={setOpen} open={open} />
+                <button onClick={handleEditModal}>Edit</button>
+                <Modal open={openEdit} onClose={handleEditModal} center>
+                    <UpdateRelationshipForm relationship={relationship} setOpen={setEditOpen} open={openEdit} />
+                </Modal>
+            </section>
+            <section>
+                <button onClick={handleDeleteModal}>X</button>
+                <Modal open={openDelete} onClose={handleDeleteModal} center>
+                    <DeleteRelationshipForm relationship={relationship} setOpen={setDeleteOpen} open={openDelete} />
                 </Modal>
             </section>
         </Card>
