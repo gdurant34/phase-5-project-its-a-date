@@ -6,6 +6,7 @@ import UpdateDateForm from "./UpdateDateFrom";
 import { Modal } from 'react-responsive-modal';
 import DeleteDateForm from "./DeleteDateForm";
 import DropdownActivityToDate from "./DropdownActivityToDate";
+import './DateCard.css'
 
 
 function DateCard({ date }) {

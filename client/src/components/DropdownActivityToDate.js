@@ -1,32 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { activitiesStateAtom } from "../recoil/atoms";
 import { useRecoilState } from 'recoil';
-import { Dropdown } from 'semantic-ui-react'
+import Select from 'react-select';
 
 
 const DropdownActivityToDate = ({ date, setOpen, open }) => {
 
-  const [activities, setActivities] = useRecoilState(activitiesStateAtom)
+  const [activities, setActivities] = useRecoilState(activitiesStateAtom);
+  const [selected, setSelected] = useState([]);
+
+  // const handleDropdownChange = (e) => {
+  //   //     const value = e.target.value;
+  //   //     const name = e.target.name;
+  //   //     setRelationshipFormData((relationshipFormData) => ({
+  //   //         ...relationshipFormData,
+  //   //         [name]: value
+  //   //     }))
+  // }
 
   const handleDropdownChange = (e) => {
-    //     const value = e.target.value;
-    //     const name = e.target.name;
-    //     setRelationshipFormData((relationshipFormData) => ({
-    //         ...relationshipFormData,
-    //         [name]: value
-    //     }))
+    setSelected(e)
   }
 
   const options = activities.map(activity => {
     return (
-      { key: activity.title, text: activity.title, value: activity.title }
+      { value: activity.id, label: activity.title }
     )
   })
 
+const handleClick = () => {
+  const dateActivity = {
+    
+  }
+}
+
   return (
     <div>
-        <Dropdown placeholder='Select' fluid multiple selection options={options} />
+        <h3>Pick Your Activity / Activities</h3>
+        <Select
+          isSearchable={true}
+          isMulti={true}
+          value={selected}
+          onChange={handleDropdownChange}
+          options={options}
+        />
+        <button onClick={handleClick}>Save</button>
     </div>
   );
 };
 export default DropdownActivityToDate;
+
