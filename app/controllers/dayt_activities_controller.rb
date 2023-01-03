@@ -6,8 +6,17 @@ class DaytActivitiesController < ApplicationController
         dayt_activities = DaytActivity.all
         render json: dayt_activities, status: :ok
     end
+
+    def create
+        dayt_activity = DaytActivity.create!(dayt_activity_params)
+        render json: dayt_activities, status: :created
+    end
     
     private
+
+    def dayt_activity_params
+        params[:dayt_activity].permit(:dayt_id, :activity_id)
+    end
     
     def render_uprocessable_entity_response(exception)
         render json: { errors: exception.record.errors.full_messages }, status: :unprocessable_entity
