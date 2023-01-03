@@ -5,7 +5,8 @@ import DateActivities from "./DateActivities";
 import UpdateDateForm from "./UpdateDateFrom";
 import { Modal } from 'react-responsive-modal';
 import DeleteDateForm from "./DeleteDateForm";
-import DropdownActivityToDate from "./DropdownActivityToDate";
+// import DropdownActivityToDate from "./DropdownActivityToDate";
+import DropdownUpdateDateActivities from "./DropdownUpdateDateActivities";
 import './DateCard.css'
 
 
@@ -13,11 +14,14 @@ function DateCard({ date }) {
 
     const [openEdit, setEditOpen] = useState(false);
     const [openDelete, setDeleteOpen] = useState(false);
-    const [openAddActivity, setOpenAddActivity] = useState(false);
-
+    // const [openAddActivity, setOpenAddActivity] = useState(false);
+    const [openEditActivity, setOpenEditActivity] = useState(false);
+    
+    
     const handleEditModal = () => setEditOpen(!openEdit);
     const handleDeleteModal = () => setDeleteOpen(!openDelete)
-    const handleAddActivityModal = () => setOpenAddActivity(!openAddActivity)
+    // const handleAddActivityModal = () => setOpenAddActivity(!openAddActivity)
+    const handleEditActivityModal = () => setOpenEditActivity(!openEditActivity)
 
     const activities = date.activities.map(activity => (
         <DateActivities key={activity.id} activity={activity} />
@@ -41,10 +45,16 @@ function DateCard({ date }) {
                     <UpdateDateForm date={date} setOpen={setEditOpen} open={openEdit} />
                 </Modal>
             </section>
-            <section>
+            {/* <section>
                 <button onClick={handleAddActivityModal}>Add Activity</button>
                 <Modal open={openAddActivity} onClose={handleAddActivityModal} center>
                     <DropdownActivityToDate date={date} setOpen={setOpenAddActivity} open={openAddActivity} />
+                </Modal>
+            </section> */}
+            <section>
+                <button onClick={handleEditActivityModal}>Add Activity</button>
+                <Modal open={openEditActivity} onClose={handleEditActivityModal} center>
+                    <DropdownUpdateDateActivities date={date} setOpen={setOpenEditActivity} open={openEditActivity} />
                 </Modal>
             </section>
             <section>
