@@ -1,14 +1,18 @@
-import React from 'react';
-import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useMatch, useResolvedPath, useNavigate } from 'react-router-dom';
 import { currentUserStateAtom } from '../recoil/atoms';
 import { useRecoilState } from 'recoil';
-import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
     const [currentUser, setCurrentUser] = useRecoilState(currentUserStateAtom);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (!currentUser) {
+            navigate('/')
+        }
+    },[currentUser])
 
     function CustomLink({ to, children, ...props }) {
         const resolvedPath = useResolvedPath(to)
@@ -21,10 +25,10 @@ const Navbar = () => {
     }
 
     const handleLogout = () => {
-        fetch("/logout", {
+        fetch(`/logout`, {
             method: "DELETE",
-        }).then(setCurrentUser(null))
-        .then(navigate("/"))
+        })
+        .then(() => setCurrentUser(null))
     }
 
     return (
