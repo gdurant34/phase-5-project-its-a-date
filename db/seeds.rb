@@ -15,12 +15,18 @@ Activity.destroy_all
 UserRelationship.destroy_all
 DaytActivity.destroy_all
 
+def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
 
 puts "Seeding users..."
 # test users have same password
-user1 = User.create(first_name: 'Caitlin', last_name: 'Smith', user_name: 'csmith', age: 23, email: 'csmith@me.com')
-user2 = User.create(first_name: 'Daniel', last_name: 'Jones', user_name: 'djones', age: 35, email: 'djones@gmail.com')
-user3 = User.create(first_name: 'Ann', last_name: 'Williams', user_name: 'awilliams', age: 28, email: 'awilliams@gmail.com')
+user1 = User.create(first_name: 'Caitlin', last_name: 'Smith', user_name: 'csmith', age: 23, email: 'csmith@me.com', password_digest: User.digest('love'))
+user2 = User.create(first_name: 'Daniel', last_name: 'Jones', user_name: 'djones', age: 35, email: 'djones@gmail.com', password_digest: User.digest('love'))
+user3 = User.create(first_name: 'Ann', last_name: 'Williams', user_name: 'awilliams', age: 28, email: 'awilliams@gmail.com', password_digest: User.digest('love'))
 
 puts "Seeding relationships..."
 relationship1 = Relationship.create(relationship_type:'Romantic', name: 'Joshua', email: 'jmclean@gmail.com')
@@ -33,9 +39,9 @@ dayt2 = Dayt.create(time: '7pm', location: '11 Midway St. Seattle WA 98132', con
 dayt3 = Dayt.create(time: '4pm', location: '101 Louis St. Seattle WA 98412', confirmed: false, category: 'Walk', user: user3, relationship: relationship2)
 
 puts "Seeding activies..."
-activity1 = Activity.create(title: 'Horse back riding', category: 'Active', location: '333 Main St Dallas, TX 76223', description: 'This is a place you can pay to ride a horse for 2 hours', image: 'https://t.ly/m-pu', est_price: 35, user: user2, relationship: relationship2)
-activity2 = Activity.create(title: 'Skatig along the waterfront', category: 'Active', location: '333 Boarderline St Seattle, WA 76223', description: 'Skate along the waterfront', image: 'https://t.ly/EyEr', est_price: 0, user: user3, relationship: relationship1)
-activity3 = Activity.create(title: 'Dinner at Sushi', category: 'Dinner', location: '333 Main St New York, NY 12542', description: '5 course sushi dinner', image: 'https://t.ly/Vpls', est_price: 125, user: user1, relationship: relationship2)
+activity1 = Activity.create(title: 'Horse back riding', category: 'Active', location: '333 Main St Dallas, TX 76223', description: 'This is a place you can pay to ride a horse for 2 hours', image: 'https://i0.wp.com/triplecreekhorseoutfit.com/wp-content/uploads/2020/08/full-moon-ride-13.jpg?fit=3960%2C2640&ssl=1', est_price: 35, user: user2, relationship: relationship2)
+activity2 = Activity.create(title: 'Skatig along the waterfront', category: 'Active', location: '333 Boarderline St Seattle, WA 76223', description: 'Skate along the waterfront', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3KU4zYDeexysUa2waPL6PxVNjP_mOZoCeEQ&usqp=CAU', est_price: 0, user: user3, relationship: relationship1)
+activity3 = Activity.create(title: 'Dinner at Sushi', category: 'Dinner', location: '333 Main St New York, NY 12542', description: '5 course sushi dinner', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNIt6ZG0PA3NSj7RVH0auRHUYqqpgOJMOANg&usqp=CAU', est_price: 125, user: user1, relationship: relationship2)
 
 puts "Seeding userRelationships..."
 userRelationship1 = UserRelationship.create(user: user1, relationship: relationship2)
