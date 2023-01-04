@@ -1,7 +1,7 @@
 import './App.css';
 import './components/NavBar.css'
 import React, { useEffect } from 'react';
-import { RecoilRoot, useRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -20,7 +20,7 @@ import { currentUserStateAtom } from "./recoil/atoms"
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useRecoilState(currentUserStateAtom)
+  const setCurrentUser = useSetRecoilState(currentUserStateAtom)
 
   useEffect(() => {
     // console.log(currentUser)
@@ -31,15 +31,12 @@ function App() {
             .then(user => setCurrentUser(user))
         }
       })
-      console.log(currentUser)
   }, [])
 
   // if(!currentUser) return <Login setCurrentUser={setCurrentUser} />
   
 
   return (
-    <RecoilRoot>
-      {console.log(currentUser)}
       <header className="App-header">
         <NavBar />
         <div className="container">
@@ -56,7 +53,6 @@ function App() {
           </Routes>
         </div>
       </header>
-    </RecoilRoot>
   );
 }
 
