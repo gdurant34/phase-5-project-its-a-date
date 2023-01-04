@@ -13,7 +13,9 @@ export const userFormDataStateAtom = atom({
         lastName: '',
         userName: '',
         age: '',
-        email: ''
+        email: '',
+        password: '',
+        password_confirmation: ''
     },
 })
 

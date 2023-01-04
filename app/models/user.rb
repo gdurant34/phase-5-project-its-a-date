@@ -5,4 +5,6 @@ class User < ApplicationRecord
     has_many :dayts
     has_many :comments
     validates :email, uniqueness: true
+
+    has_secure_password
 end
