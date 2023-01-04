@@ -1,7 +1,7 @@
 import './App.css';
 import './components/NavBar.css'
 import React, { useEffect } from 'react';
-import { RecoilRoot, useSetRecoilState } from 'recoil';
+import { RecoilRoot, useRecoilState } from 'recoil';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -20,52 +20,26 @@ import { currentUserStateAtom } from "./recoil/atoms"
 
 function App() {
 
-  const setCurrentUser = useSetRecoilState(currentUserStateAtom)
+  const [currentUser, setCurrentUser] = useRecoilState(currentUserStateAtom)
 
   useEffect(() => {
+    // console.log(currentUser)
     fetch('/auth')
       .then(r => {
         if (r.ok) {
           r.json()
-            .then(setCurrentUser)
+            .then(user => setCurrentUser(user))
         }
       })
+      console.log(currentUser)
   }, [])
 
   // if(!currentUser) return <Login setCurrentUser={setCurrentUser} />
   
-  useEffect(() => {
-    // fetch('/dayts')
-    //   .then(r => r.json())
-    //   .then(console.log)
-
-    // fetch('/relationships')
-    //   .then(r => r.json())
-    //   .then(console.log)
-
-    // fetch('/activities')
-    //   .then(r => r.json())
-    //   .then(console.log)
-
-    // fetch('/comments')
-    //   .then(r => r.json())
-    //   .then(console.log)
-
-    // fetch('/dayt_activities')
-    //   .then(r => r.json())
-    //   .then(console.log)
-
-    // fetch('/user_relationships')
-    //   .then(r => r.json())
-    //   .then(console.log)
-
-    // fetch('/users')
-    //   .then(r => r.json())
-    //   .then(console.log)
-  }, [])
 
   return (
     <RecoilRoot>
+      {console.log(currentUser)}
       <header className="App-header">
         <NavBar />
         <div className="container">
