@@ -4,7 +4,7 @@ class RelationshipsController < ApplicationController
     
     def index
         relationships = Relationship.all
-        render json: relationships, status: :ok
+        render json: current_user.relationships, status: :ok
     end
 
     def show 

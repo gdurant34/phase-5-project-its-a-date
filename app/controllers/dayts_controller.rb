@@ -4,7 +4,7 @@ class DaytsController < ApplicationController
     
     def index
         dayts = Dayt.all
-        render json: dayts, status: :ok
+        render json: current_user.dayts, status: :ok
     end
 
     def show

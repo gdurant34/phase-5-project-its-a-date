@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
     
     def index
         activities = Activity.all
-        render json: activities, status: :ok
+        render json: current_user.activities, status: :ok
     end
 
     def show 
