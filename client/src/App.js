@@ -1,7 +1,7 @@
 import './App.css';
 import './components/NavBar.css'
 import React, { useEffect } from 'react';
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot, useSetRecoilState } from 'recoil';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -13,12 +13,26 @@ import RelationshipsPage from './pages/RelationshipsPage';
 import LoginPage from './pages/LoginPage';
 import NewActivityForm from './components/NewActivityForm';
 import NewUserForm from './components/NewUserForm';
+import { currentUserStateAtom } from "./recoil/atoms"
+
 
 
 
 function App() {
 
+  const setCurrentUser = useSetRecoilState(currentUserStateAtom)
 
+  useEffect(() => {
+    fetch('/auth')
+      .then(r => {
+        if (r.ok) {
+          r.json()
+            .then(setCurrentUser)
+        }
+      })
+  }, [])
+
+  // if(!currentUser) return <Login setCurrentUser={setCurrentUser} />
   
   useEffect(() => {
     // fetch('/dayts')

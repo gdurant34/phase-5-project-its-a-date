@@ -1,10 +1,11 @@
 import React from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { userModalStateAtom, userFormDataStateAtom } from '../recoil/atoms';
+import { currentUserStateAtom } from '../recoil/atoms';
 
 const NewUserForm = () => {
     const [userFormData, setUserFormData] = useRecoilState(userFormDataStateAtom);
-    // const setCurrentUserState = useSetRecoilState(currentUserStateAtom);
+    const setCurrentUserState = useSetRecoilState(currentUserStateAtom);
     // const setErrorsState = useSetRecoilState(errorsStateAtom)
     const setOpen = useSetRecoilState(userModalStateAtom)
 
@@ -15,7 +16,9 @@ const NewUserForm = () => {
             lastName: '',
             userName: '',
             age: '',
-            email: ''
+            email: '',
+            password: '',
+            password_confirmation: ''
         }))
     }
 
@@ -36,7 +39,9 @@ const NewUserForm = () => {
             last_name: userFormData.lastName,
             age: userFormData.age,
             user_name: userFormData.userName,
-            email: userFormData.email
+            email: userFormData.email, 
+            password: userFormData.password,
+            password_confirmation: userFormData.passwordConfirmation
         }
         fetch(`/users`, {
             method: "POST",
@@ -44,7 +49,7 @@ const NewUserForm = () => {
             body: JSON.stringify(user)
         })
             .then(r => r.json())
-            .then(console.log)
+            .then(setCurrentUserState)
             .then(setOpen(false))
             .then(resetForm())
     }
@@ -77,14 +82,14 @@ const NewUserForm = () => {
                     <label htmlFor="email" />
                     <input type="string" name="email" value={userFormData.email} onChange={(e) => handleChange(e)} />
                 </div>
-                {/* <div>
+                <div>
                     <label htmlFor="password">Password:</label>
-                    <input type="password" name="password"  />
+                    <input type="password" name="password" value={userFormData.password} onChange={(e)=> handleChange(e)} />
                 </div>
                 <div>
                     <label htmlFor="password_confirmation">Confirm Password:</label>
-                    <input type="password" id="password_confirmation" name="passwordConfirmation" />
-                </div> */}
+                    <input type="password" id="password_confirmation" name="passwordConfirmation" value={userFormData.passwordConfirmation} onChange={(e) => handleChange(e)} />
+                </div>
                 <div>
                     <input className='button' type="submit" />
                 </div>
