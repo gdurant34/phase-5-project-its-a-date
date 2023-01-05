@@ -4,6 +4,16 @@
 
 }
 
-/* .uifivecards {
-    border: 5px;
-} */
+div.ui.five.cards {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    border-width: 3px;
+}
+
+
+.scrolling-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  

@@ -25,7 +25,12 @@ const DropdownActivityToDate = ({ date, setOpen, open }) => {
 
   return (
     <div>
+      <form>
         <Dropdown placeholder='Select' fluid multiple selection options={options} />
+        <div>
+          <button className='button' type="submit" />
+        </div>
+      </form>
     </div>
   );
 };
