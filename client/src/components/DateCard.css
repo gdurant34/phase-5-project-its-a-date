@@ -2,3 +2,27 @@
     height: 40%;
     width: 40%;
 }
+
+#edit-btn {
+    background-color: #D3DCDC;
+    color: #234F56;
+    border-radius: 5px;
+    font-size: 12px;
+    border: 0px;
+}
+
+button#add-activity-btn.card-btns {
+    background-color: #D3DCDC;
+    color: #234F56;
+    border-radius: 5px;
+    font-size: 12px;
+    border: 0px;
+}
+
+#delete-btn {
+    background-color: #D3DCDC;
+    color: #234F56;
+    border-radius: 5px;
+    font-size: 12px;
+    border: 0px;
+}
