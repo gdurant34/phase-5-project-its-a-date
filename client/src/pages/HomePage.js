@@ -17,18 +17,18 @@ function Home() {
 
   return (
     <div>
-      <section>
+      <section className='about'>
         <h3>About</h3>
-        <div>This is an app to help people come up with fun things, and store ideas, and plan them out. Also when you haven't had time to plan something fun, but what to do something fun, but aren't sure what you can checkout you ideas you've had previously.</div>
+        <div className='about-div'>This is an app to help people come up with fun things, and store ideas, and plan them out. Also when you haven't had time to plan something fun, but what to do something fun, but aren't sure what you can checkout you ideas you've had previously.</div>
       </section>
-      <section>
-        <h4>Not a member?</h4>
-        <button onClick={onOpenModal}>Create an account</button>
+      <section className='create-account'>
+        <h3>Not a member?</h3>
+        <button className='btn' onClick={onOpenModal}>Create an account</button>
         <Modal open={open} onClose={onCloseModal} center>
           <NewUserForm />
         </Modal>
       </section>
-      <section>
+      <section className='features'>
         <h3>Features</h3>
         <div>
           <ul>
@@ -43,7 +43,8 @@ function Home() {
           </ul>
         </div>
       </section>
-      <section>
+      <></>
+      <section className='who-for'>
         <h3>Who's it for?</h3>
         <div>Anyone that wants to have a backlog of ideas to do with a friend, family member, romantic partner etc. </div>
       </section>

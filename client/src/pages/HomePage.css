@@ -7,3 +7,42 @@
     max-width: 500px;
     width: 100%;
   }
+
+  .about {
+    width: 65%;
+    text-align: center;
+    margin: 10%;
+  }
+
+  .create-account {
+    margin: 5%;
+  }
+
+  .features {
+    float: left;
+    width: 70%;
+  }
+
+  .features ul {
+    list-style-type: none;
+  }
+
+  .who-for {
+    float: bottom
+    ;
+  }
+
+  .about-div {
+    text-align: center;
+  }
+  
+  button.btn {
+    padding: 10;
+    height: 30px;
+    width: 75;
+    border-radius: 10px;
+    background-color: teal;
+    color: #F3F3E7;
+  }
+
+ 
