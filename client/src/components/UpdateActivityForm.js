@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { useRecoilState } from 'recoil';
-import { activityFormDataStateAtom, activitiesStateAtom } from '../recoil/atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { activityFormDataStateAtom, activitiesStateAtom, currentUserStateAtom } from '../recoil/atoms';
+import RelationshipDropdownNewActivity from "./RelationshipDropdownNewActivity";
 
 
 
@@ -8,6 +9,8 @@ const UpdateActivityForm = ({ activity, setOpen, open }) => {
 
     const [activityFormData, setActivityFormData] = useRecoilState(activityFormDataStateAtom);
     const [activities, setActivities] = useRecoilState(activitiesStateAtom)
+    const currentUser = useRecoilValue(currentUserStateAtom);
+
 
     useEffect(() => {
         setActivityFormData({
@@ -17,10 +20,18 @@ const UpdateActivityForm = ({ activity, setOpen, open }) => {
             description: activity.description,
             image: activity.image,
             estPrice: activity.est_price,
-            userId: activity.user.id,
             relationshipId: activity.relationship.id
         })
     }, [])
+
+    const handleDropdownChange = (e) => {
+        const value = e.target.value;
+        const name = "relationshipId";
+        setActivityFormData((activityFormData) => ({
+            ...activityFormData,
+            [name]: value
+        }))
+    }
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -45,7 +56,7 @@ const UpdateActivityForm = ({ activity, setOpen, open }) => {
             description: activityFormData.description,
             image: activityFormData.image,
             est_price: activityFormData.estPrice,
-            user_id: activityFormData.userId,
+            user_id: currentUser.id,
             relationship_id: activityFormData.relationshipId
         }
         fetch(`/activities/${activity.id}`, {
@@ -92,14 +103,9 @@ const UpdateActivityForm = ({ activity, setOpen, open }) => {
                     <input type="text" name="estPrice" value={activityFormData.estPrice} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <h5>User:</h5>
-                    <label htmlFor="user" />
-                    <input type="text" name="userId" value={activityFormData.userId} onChange={(e) => handleChange(e)} />
-                </div>
-                <div>
                     <h5>Relationship:</h5>
                     <label htmlFor="relationship" />
-                    <input type="text" name="relationshipId" value={activityFormData.relationshipId} onChange={(e) => handleChange(e)} />
+                    <RelationshipDropdownNewActivity handleDropdownChange={handleDropdownChange} />
                 </div>
                 <div>
                     <input className='button' type="submit" />
