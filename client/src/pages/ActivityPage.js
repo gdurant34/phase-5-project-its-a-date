@@ -1,6 +1,6 @@
 import React from 'react';
 import ActivitiesDisplay from '../components/ActivitiesDisplay';
-import SearchActivities from "../components/SearchActivities";
+// import SearchActivities from "../components/SearchActivities";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import NewActivityForm from "../components/NewActivityForm"
