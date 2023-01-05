@@ -6,7 +6,6 @@ const NewRelationshipDropdown = ({ handleDropdownChange }) => {
 
   return (
     <div>
-      {/* <h2 className="mb-3"></h2> */}
       <select onChange={handleDropdownChange} className="form-select" name='relationshipType' >
         <option defaultValue>
           Select
@@ -15,7 +14,6 @@ const NewRelationshipDropdown = ({ handleDropdownChange }) => {
         <option value="Family" name="relationshipType">Family</option>
         <option value="Romantic" name="relationshipType">Romantic</option>
       </select>
-      {/* {selectValue && <h2 className="mt-3">{selectValue}</h2>} */}
     </div>
   );
 };

@@ -1,13 +1,21 @@
 import React, { useEffect } from "react";
-import { useRecoilState, useSetRecoilState } from 'recoil';
-import { activityModalStateAtom, activityFormDataStateAtom, activitiesStateAtom } from '../recoil/atoms';
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
+import { 
+    activityModalStateAtom, 
+    activityFormDataStateAtom, 
+    activitiesStateAtom,
+    currentUserStateAtom
+} from '../recoil/atoms';
+import RelationshipDropdownNewActivity from "./RelationshipDropdownNewActivity";
+
 
 
 
 const NewActivityForm = () => {
     const [activityFormData, setActivityFormData] = useRecoilState(activityFormDataStateAtom);
-    const setOpen = useSetRecoilState(activityModalStateAtom)
     const [activities, setActivities] = useRecoilState(activitiesStateAtom)
+    const currentUser = useRecoilValue(currentUserStateAtom)
+    const setOpen = useSetRecoilState(activityModalStateAtom)
 
     useEffect(() => {
         resetForm();
@@ -21,8 +29,16 @@ const NewActivityForm = () => {
             description: '',
             image: '',
             estPrice: '',
-            userId: '',
             relationshipId: ''
+        }))
+    }
+
+    const handleDropdownChange = (e) => {
+        const value = e.target.value;
+        const name = "relationshipId";
+        setActivityFormData((activityFormData) => ({
+            ...activityFormData,
+            [name]: value
         }))
     }
 
@@ -35,6 +51,8 @@ const NewActivityForm = () => {
         }))
     }
 
+    console.log(currentUser)
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const activity = {
@@ -44,9 +62,10 @@ const NewActivityForm = () => {
             description: activityFormData.description,
             image: activityFormData.image,
             est_price: activityFormData.estPrice,
-            user_id: activityFormData.userId,
+            user_id: currentUser.id,
             relationship_id: activityFormData.relationshipId
         }
+        console.log(activity)
         fetch(`/activities`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -92,14 +111,11 @@ const NewActivityForm = () => {
                     <input type="text" name="estPrice" value={activityFormData.estPrice} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <h5>User:</h5>
-                    <label htmlFor="user" />
-                    <input type="text" name="userId" value={activityFormData.userId} onChange={(e) => handleChange(e)} />
-                </div>
-                <div>
                     <h5>Relationship:</h5>
                     <label htmlFor="relationship" />
-                    <input type="text" name="relationshipId" value={activityFormData.relationshipId} onChange={(e) => handleChange(e)} />
+                    <RelationshipDropdownNewActivity handleDropdownChange={handleDropdownChange} />
+
+                    {/* <input type="text" name="relationshipId" value={activityFormData.relationshipId} onChange={(e) => handleChange(e)} /> */}
                 </div>
                 <div>
                     <input className='button' type="submit" />
