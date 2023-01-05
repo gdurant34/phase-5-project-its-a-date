@@ -5,7 +5,8 @@ import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import NewDateForm from '../components/NewDateForm';
 import { dateModalStateAtom, currentRelationshipStateAtom } from '../recoil/atoms';
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil';
+import './DatesPage.css';
 
 
 
@@ -25,7 +26,7 @@ function DatesPage() {
       <section>
       {!currentRelationship ? "All Dates" : <h3>Dates with {currentRelationship.name}</h3>}
         <DateDisplay />
-        <button onClick={onOpenModal}>Add New</button>
+        <button id='add-new-btn' onClick={onOpenModal}>Add New</button>
         <Modal open={open} onClose={onCloseModal} center>
           <NewDateForm />
         </Modal>
