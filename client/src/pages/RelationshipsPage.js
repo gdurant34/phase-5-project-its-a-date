@@ -2,21 +2,33 @@ import React from 'react';
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import NewRelationshipForm from '../components/NewRelationshipForm'
-import { useRecoilState } from 'recoil'
-import { relationshipModalStateAtom } from '../recoil/atoms'
+import { useRecoilState, useSetRecoilState } from 'recoil'
+import { relationshipModalStateAtom, currentRelationshipStateAtom } from '../recoil/atoms'
 import RelationshipDisplay from '../components/RelationshipDisplay';
+
 
 
 
 function RelationshipsPage() {
 
   const [open, setOpen] = useRecoilState(relationshipModalStateAtom);
+  const setCurrentRelationship = useSetRecoilState(currentRelationshipStateAtom);
+  // const [currentRelationship, setCurrentRelationship] = useRecoilState(currentRelationshipStateAtom);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
 
+  const handleClick = () => {
+    setCurrentRelationship(null)
+  }
+
+// console.log(currentRelationship)
+
   return(
     <div>
+      <section>
+        <button onClick={handleClick}>All Relationships</button>
+      </section>
       <section>
         <RelationshipDisplay />
       </section>
@@ -25,8 +37,6 @@ function RelationshipsPage() {
         <Modal open={open} onClose={onCloseModal} center>
           <NewRelationshipForm />
         </Modal>
-        <br/>
-        <button>Delete Relationship</button>
       </section>
     </div>
   );

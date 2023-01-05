@@ -24,7 +24,7 @@ function RelationshipDisplay() {
 
   return (
     <div className="container">
-      <CardGroup itemsPerRow={5} >
+      <CardGroup itemsPerRow={1} >
         {cards}
       </CardGroup>
     </div>

@@ -60,6 +60,11 @@ export const currentUserStateAtom = atom({
     default: null,
 })
 
+export const currentRelationshipStateAtom = atom({
+    key: 'currentRelationshipStateAtom',
+    default: null,
+})
+
 export const errorsStateAtom = atom({
     key: 'errorsStateAtom',
     default: [],
