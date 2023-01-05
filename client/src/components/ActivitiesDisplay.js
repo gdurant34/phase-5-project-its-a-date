@@ -2,8 +2,11 @@ import React, { useEffect } from "react";
 import { CardGroup } from "semantic-ui-react";
 import ActivityCard from "./ActivityCard";
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { activitiesStateAtom } from '../recoil/atoms'
-import { currentUserStateAtom } from '../recoil/atoms'
+import {
+  activitiesStateAtom,
+  currentUserStateAtom,
+  currentRelationshipStateAtom
+} from '../recoil/atoms'
 
 
 
@@ -13,6 +16,7 @@ const ActivitiesDisplay = () => {
 
   const [activities, setActivities] = useRecoilState(activitiesStateAtom)
   const currentUser = useRecoilValue(currentUserStateAtom)
+  const currentRelationship = useRecoilValue(currentRelationshipStateAtom)
 
   useEffect(() => {
     if (currentUser) {
@@ -22,16 +26,21 @@ const ActivitiesDisplay = () => {
     }
   }, [currentUser])
 
-  // console.log(activities)
 
   const cards = activities.map(activity => (
     <ActivityCard key={activity.id} activity={activity} />
   ))
 
+  const filteredRelationships = activities.map(activity => {
+    if (currentRelationship !== null && activity.relationship.id === currentRelationship.id) {
+      return <ActivityCard key={activity.id} activity={activity} />
+    }
+  })
+
   return (
     <div className="container">
       <CardGroup itemsPerRow={5} >
-        {cards}
+        {!currentRelationship ? cards : filteredRelationships}
       </CardGroup>
     </div>
   );

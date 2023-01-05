@@ -35,7 +35,6 @@ const DateDisplay = () => {
   return (
     <div className="container">
       <Card.Group itemsPerRow={3}>
-        {/* {cards} */}
         {!currentRelationship ? cards : filteredRelationships}
       </Card.Group>
     </div>
