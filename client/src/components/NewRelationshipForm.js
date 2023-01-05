@@ -4,7 +4,7 @@ import { useRecoilState, useSetRecoilState } from 'recoil'
 import {
     relationshipFormDataStateAtom,
     relationshipModalStateAtom,
-    relationshipsStateAtom
+    relationshipsStateAtom, 
 } from "../recoil/atoms";
 
 
@@ -44,16 +44,14 @@ const NewRelationshipForm = () => {
         }))
     }
 
-    // const data = useRecoilValue(relationshipFormDataStateAtom)
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(data)
         const relationship = {
             relationship_type: relationshipFormData.relationshipType,
             name: relationshipFormData.name,
             email: relationshipFormData.email
         }
+        // console.log(relationship)
         fetch(`/relationships`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
@@ -64,7 +62,6 @@ const NewRelationshipForm = () => {
             .then(setOpen(false))
             .then(resetForm())
     }
-
 
     return (
         <div className="New-relationship-card">
