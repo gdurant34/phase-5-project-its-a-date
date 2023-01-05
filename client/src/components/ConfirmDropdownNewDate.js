@@ -7,9 +7,6 @@ const ConfirmDropdownNewDate = ({ handleConfirmDropdownChange }) => {
 
     const currentUser = useRecoilValue(currentUserStateAtom)
 
-    // console.log(dates)
-    console.log(currentUser)
-
 return (
     <div>
         <select onChange={handleConfirmDropdownChange} className="form-select" name='relationship' >

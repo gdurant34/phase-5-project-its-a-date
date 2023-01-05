@@ -11,10 +11,6 @@ const RelationshipDropdownNewDate = ({ handleDropdownChange }) => {
         <option key={relationship.id} value={relationship.id} name={relationship.name}>{relationship.name}</option>
         ))
 
-
-    // console.log(dates)
-    console.log(currentUser)
-
 return (
     <div>
         <select onChange={handleDropdownChange} className="form-select" name='relationship' >
