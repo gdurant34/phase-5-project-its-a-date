@@ -22,3 +22,12 @@
     width: 100%;
     object-fit: contain;
 }
+
+button {
+    border: 0px;
+    font-size: 4px;
+}
+
+.edit-btn {
+    float: left;
+}

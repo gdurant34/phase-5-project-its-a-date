@@ -1,0 +1,48 @@
+/* button.btn {
+    padding: 10;
+    height: 25px;
+    width: 75;
+    /* border-radius: 8px; 
+    background-color: #A39D92;
+    color: #F3F3E7;
+  } */
+
+  .current-relationship {
+    font-size: 4em;
+    color: azure;
+    margin: 10%;
+  }
+
+  article, aside, footer, header, nav, section {
+    display: block;
+    color: teal;
+}
+
+#all-relationships-btn {
+    padding: 10;
+    height: 30px;
+    width: 75;
+    /* border-radius: 10px; */
+    background-color: teal; 
+    color: #F3F3E7;
+    background-color: #A39D92;
+    border: 0px;
+}
+
+#new-relationship-btn {
+    padding: 10;
+    height: 30px;
+    width: 75;
+    /* border-radius: 10px; */
+    background-color: teal; 
+    color: #F3F3E7;
+    background-color: #A39D92;
+    border: 0px;
+} 
+
+/* .ui.cards {
+    display: flex;
+    margin: -0.875em -0.5em;
+    flex-wrap: wrap;
+    color: #D3DCDC;
+} */

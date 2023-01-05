@@ -34,7 +34,7 @@ function RelationshipCard({ relationship }) {
                 />
             </section>
             <section>
-                <button onClick={handleEditModal}>Edit</button>
+                <button id='edit-btn' onClick={handleEditModal}>Edit</button>
                 <Modal open={openEdit} onClose={handleEditModal} center>
                     <UpdateRelationshipForm relationship={relationship} setOpen={setEditOpen} open={openEdit} />
                 </Modal>

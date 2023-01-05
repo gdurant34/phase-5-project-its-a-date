@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { CardGroup } from "semantic-ui-react";
-import { useRecoilState } from 'recoil';
-import { relationshipsStateAtom } from '../recoil/atoms'
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { relationshipsStateAtom, currentUserStateAtom } from '../recoil/atoms'
 import RelationshipCard from "./RelationshipCard";
 
 
@@ -9,12 +9,15 @@ import RelationshipCard from "./RelationshipCard";
 function RelationshipDisplay() {
 
   const [relationships, setRelationships] = useRecoilState(relationshipsStateAtom)
+  const currentUser = useRecoilValue(currentUserStateAtom)
 
   useEffect(() => {
+    if (currentUser) {
     fetch('/relationships')
       .then(r => r.json())
       .then(setRelationships)
-  }, [])
+    }
+  }, [currentUser])
 
 //   console.log(relationships)
 

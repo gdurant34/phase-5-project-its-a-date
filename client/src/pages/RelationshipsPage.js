@@ -1,5 +1,6 @@
 import React from 'react';
 import 'react-responsive-modal/styles.css';
+import './RelationshipPage.css';
 import { Modal } from 'react-responsive-modal';
 import NewRelationshipForm from '../components/NewRelationshipForm'
 import { useRecoilState, useSetRecoilState } from 'recoil'
@@ -26,17 +27,17 @@ function RelationshipsPage() {
 
   return(
     <div>
-      <section>
+      <section className='current-relationship'>
         {!currentRelationship ? "All Relationships" : <div>{currentRelationship.name}</div>}
       </section>
       <section>
-        <button onClick={handleClick}>All Relationships</button>
+        <button id='all-relationships-btn' className='btn' onClick={handleClick}>All Relationships</button>
       </section>
       <section>
         <RelationshipDisplay />
       </section>
       <section>
-      <button onClick={onOpenModal}>New Relationship</button>
+      <button id='new-relationship-btn' className='btn' onClick={onOpenModal}>New Relationship</button>
         <Modal open={open} onClose={onCloseModal} center>
           <NewRelationshipForm />
         </Modal>
