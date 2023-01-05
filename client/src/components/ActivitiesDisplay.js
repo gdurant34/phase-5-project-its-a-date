@@ -4,8 +4,7 @@ import ActivityCard from "./ActivityCard";
 import { useRecoilState, useRecoilValue } from 'recoil';
 import {
   activitiesStateAtom,
-  currentUserStateAtom,
-  currentRelationshipStateAtom
+  currentUserStateAtom
 } from '../recoil/atoms'
 
 
@@ -16,7 +15,6 @@ const ActivitiesDisplay = () => {
 
   const [activities, setActivities] = useRecoilState(activitiesStateAtom)
   const currentUser = useRecoilValue(currentUserStateAtom)
-  const currentRelationship = useRecoilValue(currentRelationshipStateAtom)
 
   useEffect(() => {
     if (currentUser) {
@@ -26,21 +24,14 @@ const ActivitiesDisplay = () => {
     }
   }, [currentUser])
 
-
   const cards = activities.map(activity => (
     <ActivityCard key={activity.id} activity={activity} />
   ))
 
-  const filteredRelationships = activities.map(activity => {
-    if (currentRelationship !== null && activity.relationship.id === currentRelationship.id) {
-      return <ActivityCard key={activity.id} activity={activity} />
-    }
-  })
-
   return (
     <div className="container">
       <CardGroup itemsPerRow={5} >
-        {!currentRelationship ? cards : filteredRelationships}
+        {cards}
       </CardGroup>
     </div>
   );
