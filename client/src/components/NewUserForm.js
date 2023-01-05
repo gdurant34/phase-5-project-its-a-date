@@ -39,7 +39,7 @@ const NewUserForm = () => {
             last_name: userFormData.lastName,
             age: userFormData.age,
             user_name: userFormData.userName,
-            email: userFormData.email, 
+            email: userFormData.email,
             password: userFormData.password,
             password_confirmation: userFormData.passwordConfirmation
         }
@@ -83,11 +83,13 @@ const NewUserForm = () => {
                     <input type="string" name="email" value={userFormData.email} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" value={userFormData.password} onChange={(e)=> handleChange(e)} />
+                    <h5>Password:</h5>
+                    <label htmlFor="password" />
+                    <input type="password" name="password" value={userFormData.password} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <label htmlFor="password_confirmation">Confirm Password:</label>
+                    <h5>Confirm Password:</h5>
+                    <label htmlFor="password_confirmation" />
                     <input type="password" id="password_confirmation" name="passwordConfirmation" value={userFormData.passwordConfirmation} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
