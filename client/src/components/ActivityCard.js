@@ -25,13 +25,13 @@ function ActivityCard({ activity }) {
                 />
             </section>
             <section>
-                <button onClick={handleEditModal}>Edit</button>
+                <button className="card-btns" onClick={handleEditModal}>Edit</button>
                 <Modal open={openEdit} onClose={handleEditModal} center>
                     <UpdateActivityForm activity={activity} setOpen={setEditOpen} open={openEdit} />
                 </Modal>
             </section>
             <section>
-                <button onClick={handleDeleteModal}>X</button>
+                <button className="card-btns" onClick={handleDeleteModal}>X</button>
                 <Modal open={openDelete} onClose={handleDeleteModal} center>
                     <DeleteActivityForm activity={activity} setOpen={setDeleteOpen} open={openDelete} />
                 </Modal>

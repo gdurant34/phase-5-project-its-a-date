@@ -1,4 +1,10 @@
-/* .display {
-    width: 30%;
-    float: left;
-} */
+# add-new-btn {
+    padding: 10;
+    height: 30px;
+    width: 75;
+    border-radius: 8px;
+    color: #F3F3E7;
+    background-color: #A39D92;
+    border: 0px;
+}
+
