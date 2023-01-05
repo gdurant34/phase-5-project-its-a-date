@@ -40,6 +40,18 @@
     border: 0px;
 } 
 
+#edit-btn {
+  background-color: #D3DCDC;
+  color: #234F56;
+  border-radius: 5px;
+}
+
+#delete-btn {
+  background-color: #D3DCDC;
+  color: #234F56;
+  border-radius: 5px;
+}
+
 /* .ui.cards {
     display: flex;
     margin: -0.875em -0.5em;

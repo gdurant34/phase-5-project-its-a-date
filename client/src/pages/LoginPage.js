@@ -71,7 +71,7 @@ const LoginPage = () => {
                         value={password}
                         onChange={(e) => handlePasswordChange(e)}
                     />
-                    <Button color='teal' fluid size='large' className='button' type="submit" value="Login">
+                    <Button id='login-btn' color='teal' fluid size='large' className='button' type="submit" value="Login">
                         Login
                     </Button>
                 </Form>

@@ -2,9 +2,16 @@
     background-color: #234F56;
 } */
 
-.ui.teal.button, .ui.teal.buttons .button {
+/* #login-btn .button {
     background-color: teal;
-    color: #fff;
+    color: #A39D92;
+    text-shadow: none;
+    background-image: none;
+} */
+
+#lgoin-btn .ui.teal.button, .ui.teal.buttons .button {
+    background-color: teal;
+    color: #A39D92;
     text-shadow: none;
     background-image: none;
 }

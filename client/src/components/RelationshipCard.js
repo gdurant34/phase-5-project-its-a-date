@@ -40,7 +40,7 @@ function RelationshipCard({ relationship }) {
                 </Modal>
             </section>
             <section>
-                <button onClick={handleDeleteModal}>X</button>
+                <button id='delete-btn' onClick={handleDeleteModal}>X</button>
                 <Modal open={openDelete} onClose={handleDeleteModal} center>
                     <DeleteRelationshipForm relationship={relationship} setOpen={setDeleteOpen} open={openDelete} />
                 </Modal>
