@@ -27,7 +27,7 @@ const DateDisplay = () => {
 
   return (
     <div className="container">
-      <Card.Group itemsPerRow={5}>
+      <Card.Group itemsPerRow={3}>
         {dates.map(date => (
           <DateCard key={date.id} date={date}
           />
