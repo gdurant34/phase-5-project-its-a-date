@@ -5,7 +5,7 @@ import { Modal } from 'react-responsive-modal';
 import UpdateRelationshipForm from "./UpdateRelationshipFrom";
 import DeleteRelationshipForm from "./DeleteRelationshipForm";
 import { currentRelationshipStateAtom } from '../recoil/atoms';
-import { useSetRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilState } from 'recoil';
 
 
 function RelationshipCard({ relationship }) {
@@ -13,12 +13,16 @@ function RelationshipCard({ relationship }) {
     const [openEdit, setEditOpen] = useState(false);
     const [openDelete, setDeleteOpen] = useState(false);
     const setCurrentRelationship = useSetRecoilState(currentRelationshipStateAtom);
+    // const [currentRelationship, setCurrentRelationship] = useRecoilState(currentRelationshipStateAtom);
+
     const handleEditModal = () => setEditOpen(!openEdit);
     const handleDeleteModal = () => setDeleteOpen(!openDelete)
 
     const handleClick = () => {
         setCurrentRelationship(relationship)
     }
+
+    // console.log(currentRelationship)
 
     return (
         <Card onClick={handleClick}>
