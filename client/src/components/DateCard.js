@@ -21,6 +21,7 @@ function DateCard({ date }) {
     const activities = date.activities.map(activity => (
         <DateActivities key={activity.id} activity={activity} />
     ))
+    // console.log(date.activities)
 
     return (
         <Card>
