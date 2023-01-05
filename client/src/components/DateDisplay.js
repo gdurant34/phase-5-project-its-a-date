@@ -33,7 +33,7 @@ const DateDisplay = () => {
   })
 
   return (
-    <div className="container">
+    <div className="scrolling-wrapper">
       <Card.Group itemsPerRow={3}>
         {!currentRelationship ? cards : filteredRelationships}
       </Card.Group>
