@@ -41,7 +41,7 @@
 
 .nav li:hover {
     background-color: #935F4C;
-    color: #234F56;
+    color: teal;
 }
 
 .vsc-initialized {
