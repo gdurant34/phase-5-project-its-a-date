@@ -4,13 +4,14 @@ import DateDisplay from "../components/DateDisplay";
 import 'react-responsive-modal/styles.css';
 import { Modal } from 'react-responsive-modal';
 import NewDateForm from '../components/NewDateForm';
-import { dateModalStateAtom } from '../recoil/atoms';
-import { useRecoilState } from 'recoil'
+import { dateModalStateAtom, currentRelationshipStateAtom } from '../recoil/atoms';
+import { useRecoilState, useRecoilValue } from 'recoil'
 
 
 
 function DatesPage() {
   const [open, setOpen] = useRecoilState(dateModalStateAtom);
+  const currentRelationship = useRecoilValue(currentRelationshipStateAtom);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -22,7 +23,7 @@ function DatesPage() {
         <ActivitiesDisplay />
       </section>
       <section>
-        <h3>Dates</h3>
+      {!currentRelationship ? "All Dates" : <h3>Dates with {currentRelationship.name}</h3>}
         <DateDisplay />
         <button onClick={onOpenModal}>Add New</button>
         <Modal open={open} onClose={onCloseModal} center>

@@ -12,8 +12,8 @@ import RelationshipDisplay from '../components/RelationshipDisplay';
 function RelationshipsPage() {
 
   const [open, setOpen] = useRecoilState(relationshipModalStateAtom);
-  const setCurrentRelationship = useSetRecoilState(currentRelationshipStateAtom);
-  // const [currentRelationship, setCurrentRelationship] = useRecoilState(currentRelationshipStateAtom);
+  // const setCurrentRelationship = useSetRecoilState(currentRelationshipStateAtom);
+  const [currentRelationship, setCurrentRelationship] = useRecoilState(currentRelationshipStateAtom);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -26,6 +26,9 @@ function RelationshipsPage() {
 
   return(
     <div>
+      <section>
+        {!currentRelationship ? "All Relationships" : <div>{currentRelationship.name}</div>}
+      </section>
       <section>
         <button onClick={handleClick}>All Relationships</button>
       </section>
