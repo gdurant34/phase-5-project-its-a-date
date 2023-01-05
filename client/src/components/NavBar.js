@@ -45,7 +45,7 @@ const Navbar = () => {
                         <CustomLink to="/dates">Dates</CustomLink>
                         <CustomLink to="/relationships">Relationships</CustomLink>
                         <CustomLink>
-                            <button onClick={handleLogout}>Logout</button>
+                            <button id='logout-btn' onClick={handleLogout}>Logout</button>
                         </CustomLink>
                     </>
                 }

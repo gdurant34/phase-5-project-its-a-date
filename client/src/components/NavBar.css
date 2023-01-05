@@ -48,3 +48,9 @@
     background-color: #D3DCDC;
     color: #234F56;
 }
+
+#logout-btn {
+    border: 0px;
+    background: transparent;
+    color: #EBF5F7;
+}
