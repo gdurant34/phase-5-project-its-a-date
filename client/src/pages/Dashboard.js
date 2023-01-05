@@ -8,11 +8,11 @@ const Dashboard = () => {
   return (
     <div>
       <section>
-        <h3>Upcoming Dates</h3>
+        {/* <h3>Upcoming Dates</h3> */}
         <DatesPage />
       </section>
       <section>
-        <h3>Relationships</h3>
+        {/* <h3>Relationships</h3> */}
         <RelationshipsPage />
       </section>
       {/* <section>
