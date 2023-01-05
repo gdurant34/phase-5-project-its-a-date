@@ -23,8 +23,8 @@ function ActivityPage() {
         <ActivitiesDisplay />
       </section>
       <section className='search'>
-        <h3>Search</h3>
-        <SearchActivities />
+        {/* <h3>Search</h3>
+        <SearchActivities /> */}
         <button onClick={onOpenModal}>Add New</button>
         <Modal open={open} onClose={onCloseModal} center>
           <NewActivityForm />
