@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { currentUserStateAtom } from "../recoil/atoms"
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+
 
 
 
@@ -41,23 +43,40 @@ const LoginPage = () => {
     }
 
     return (
-        <div className='login-form-div'>
-            <form className='login-form' onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" value={username} onChange={(e) => handleUsernameChange(e)} />
-                </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="pass" name="password" value={password} onChange={(e) => handlePasswordChange(e)} />
-                </div>
-                <div>
-                    <button className='button' type="submit" value="Login">
+        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' >
+            <Grid.Column style={{ maxWidth: 450 }}>
+                <Header as='h2' color='brown' textAlign='center'>
+                    {/* <Image src='/logo.png' />  */}
+                    Log-in to your account
+                </Header>
+                <Form size='large' onSubmit={handleSubmit}>
+                    <Form.Input
+                        fluid icon='user'
+                        iconPosition='left'
+                        placeholder='E-mail address'
+                        label='Username'
+                        id="username"
+                        name="username" value={username}
+                        onChange={(e) => handleUsernameChange(e)}
+                    />
+                    <Form.Input
+                        fluid
+                        icon='lock'
+                        iconPosition='left'
+                        placeholder='Password'
+                        label='Password'
+                        type='password'
+                        id="pass"
+                        name="password"
+                        value={password}
+                        onChange={(e) => handlePasswordChange(e)}
+                    />
+                    <Button color='teal' fluid size='large' className='button' type="submit" value="Login">
                         Login
-                    </button>
-                </div>
-            </form>
-        </div>
+                    </Button>
+                </Form>
+            </Grid.Column>
+        </Grid>
     )
 };
 
