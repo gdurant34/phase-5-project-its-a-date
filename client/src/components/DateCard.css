@@ -1,6 +1,7 @@
-.add-avtivity-modal {
+div.react-responsive-modal-modal {
     height: 40%;
     width: 40%;
+    text-align: center;
 }
 
 #edit-btn {
