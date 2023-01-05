@@ -3,6 +3,7 @@ import { datesStateAtom, dateFormDataStateAtom, currentUserStateAtom } from "../
 import { useRecoilState, useRecoilValue } from 'recoil';
 import RelationshipDropdownNewDate from "./RelationshipDropdownNewDate";
 import ConfirmDropdownNewDate from "./ConfirmDropdownNewDate";
+import './UpdateDateForm.css';
 
 
 const UpdateDateForm = ({ date, setOpen, open }) => {
@@ -104,7 +105,7 @@ const UpdateDateForm = ({ date, setOpen, open }) => {
                     <RelationshipDropdownNewDate handleDropdownChange={handleDropdownChange} />
                 </div>
                 <div>
-                    <input className='button' type="submit" />
+                    <button className='button' type="submit" />
                 </div>
             </form>
         </div>
