@@ -21,7 +21,6 @@ function DateCard({ date }) {
     const activities = date.activities.map(activity => (
         <DateActivities key={activity.id} activity={activity} />
     ))
-    // console.log(date.activities)
 
     return (
         <Card>
@@ -43,7 +42,7 @@ function DateCard({ date }) {
             </section>
             <section>
                 <button onClick={handleAddActivityModal}>Add Activity</button>
-                <Modal open={openAddActivity} onClose={handleAddActivityModal} center>
+                <Modal classNames='add-avtivity-modal' open={openAddActivity} onClose={handleAddActivityModal} center>
                     <DropdownActivityToDate date={date} setOpen={setOpenAddActivity} open={openAddActivity} />
                 </Modal>
             </section>
