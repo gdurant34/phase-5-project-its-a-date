@@ -114,8 +114,6 @@ const NewActivityForm = () => {
                     <h5>Relationship:</h5>
                     <label htmlFor="relationship" />
                     <RelationshipDropdownNewActivity handleDropdownChange={handleDropdownChange} />
-
-                    {/* <input type="text" name="relationshipId" value={activityFormData.relationshipId} onChange={(e) => handleChange(e)} /> */}
                 </div>
                 <div>
                     <input className='button' type="submit" />

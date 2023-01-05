@@ -1,11 +1,19 @@
 import React, { useEffect } from "react";
-import { datesStateAtom, dateFormDataStateAtom, dateModalStateAtom } from "../recoil/atoms";
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import {
+    datesStateAtom,
+    dateFormDataStateAtom,
+    dateModalStateAtom,
+    currentUserStateAtom
+} from "../recoil/atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import RelationshipDropdownNewDate from "./RelationshipDropdownNewDate";
+import ConfirmDropdownNewDate from "./ConfirmDropdownNewDate";
 
 
 const NewDateForm = () => {
 
     const [dateFormData, setDateFormData] = useRecoilState(dateFormDataStateAtom);
+    const currentUser = useRecoilValue(currentUserStateAtom);
     const setOpen = useSetRecoilState(dateModalStateAtom)
     const [dates, setDates] = useRecoilState(datesStateAtom)
 
@@ -19,8 +27,25 @@ const NewDateForm = () => {
             location: '',
             confirmed: '',
             category: '',
-            userId: '',
             relationshipId: ''
+        }))
+    }
+
+    const handleDropdownChange = (e) => {
+        const value = e.target.value;
+        const name = "relationshipId";
+        setDateFormData((dateFormData) => ({
+            ...dateFormData,
+            [name]: value
+        }))
+    }
+
+    const handleConfirmDropdownChange = (e) => {
+        const value = e.target.value;
+        const name = e.target.name;
+        setDateFormData((dateFormData) => ({
+            ...dateFormData,
+            [name]: value
         }))
     }
 
@@ -40,7 +65,7 @@ const NewDateForm = () => {
             location: dateFormData.location,
             confirmed: dateFormData.confirmed,
             category: dateFormData.category,
-            user_id: dateFormData.userId,
+            user_id: currentUser.id,
             relationship_id: dateFormData.relationshipId
         }
         fetch(`/dayts`, {
@@ -71,7 +96,7 @@ const NewDateForm = () => {
                 <div>
                     <h5>Confirmed:</h5>
                     <label htmlFor="confirmed" />
-                    <input type="text" name="confirmed" value={dateFormData.confirmed} onChange={(e) => handleChange(e)} />
+                    <ConfirmDropdownNewDate handleConfirmDropdownChange={handleConfirmDropdownChange} />
                 </div>
                 <div>
                     <h5>Category:</h5>
@@ -79,14 +104,9 @@ const NewDateForm = () => {
                     <input type="text" name="category" value={dateFormData.category} onChange={(e) => handleChange(e)} />
                 </div>
                 <div>
-                    <h5>User:</h5>
-                    <label htmlFor="user-id" />
-                    <input type="text" name="userId" value={dateFormData.userId} onChange={(e) => handleChange(e)} />
-                </div>
-                <div>
                     <h5>Relationship:</h5>
-                    <label htmlFor="relationship-id" />
-                    <input type="text" name="relationshipId" value={dateFormData.relationshipId} onChange={(e) => handleChange(e)} />
+                    <label htmlFor="relationship" />
+                    <RelationshipDropdownNewDate handleDropdownChange={handleDropdownChange} />
                 </div>
                 <div>
                     <input className='button' type="submit" />
