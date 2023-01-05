@@ -7,8 +7,6 @@ import { useRecoilState } from 'recoil';
 import { userModalStateAtom } from '../recoil/atoms'
 
 
-
-
 function Home() {
   const [open, setOpen] = useRecoilState(userModalStateAtom);
 
@@ -32,13 +30,11 @@ function Home() {
         <h3 className='header'>Features</h3>
         <div>
           <ul>
-            <li>Search ideas</li>
-            <li>Add activities</li>
-            <li>Schedule your dates</li>
+            <li>Create activities</li>
+            <li>Add activities to date</li>
             <li>You can save activities you want to try later</li>
-            <li>You can save activities to specific relationships</li>
-            <li>The other person in each relationship you have can also do all these things</li>
-            <li>You can both build out fun ideas together</li>
+            <li>You can edit your activities at any time</li>
+            <li>You can manage your dates by relationship</li>
             <li>You can both save fun ideas y'all want to try together later</li>
           </ul>
         </div>

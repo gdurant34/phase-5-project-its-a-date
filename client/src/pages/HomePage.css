@@ -9,9 +9,12 @@
   }
 
   .about {
-    width: 65%;
+    width: 400px;
     text-align: center;
-    margin: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 5%;
   }
 
   .create-account {
@@ -20,22 +23,22 @@
 
   .features {
     float: left;
-    width: 70%;
+    width: 60%;
+    margin: 5%;
+    text-align: left;
   }
 
-  .features ul {
+  /* .features ul {
     list-style-type: none;
-  }
+  } */
 
   .who-for {
-    float: bottom
-    ;
+    width: 40%;
+    float:right;
+    margin: 5%;
   }
 
-  .about-div {
-    text-align: center;
-  }
-  
+ 
   button.btn {
     padding: 10;
     height: 30px;
@@ -47,6 +50,17 @@
 
   .header {
     color: #935F4C;
+    text-align: center;
+  }
+
+  .create-account {
+    float: right;
+    margin-left: 15%;
+    margin-right: 20%;
+  }
+
+  section.about {
+    text-align: center;
   }
 
  
