@@ -1,20 +1,26 @@
 import React, { useEffect } from "react";
 import { CardGroup } from "semantic-ui-react";
 import ActivityCard from "./ActivityCard";
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { activitiesStateAtom } from '../recoil/atoms'
+import { currentUserStateAtom } from '../recoil/atoms'
 
 
 
-function ActivitiesDisplay() {
+
+const ActivitiesDisplay = () => {
+
 
   const [activities, setActivities] = useRecoilState(activitiesStateAtom)
+  const currentUser = useRecoilValue(currentUserStateAtom)
 
   useEffect(() => {
-    fetch('/activities')
-      .then(r => r.json())
-      .then(setActivities)
-  }, [activitiesStateAtom])
+    if (currentUser) {
+      fetch('/activities')
+        .then(r => r.json())
+        .then(setActivities)
+    }
+  }, [currentUser])
 
   // console.log(activities)
 

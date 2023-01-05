@@ -1,20 +1,25 @@
 import React, { useEffect } from "react";
 import './DateDisplay.css';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { datesStateAtom } from '../recoil/atoms';
 import DateCard from "./DateCard";
 import { Card } from 'semantic-ui-react';
+import { currentUserStateAtom } from '../recoil/atoms'
 
 
-function DateDisplay() {
+const DateDisplay = () => {
 
   const [dates, setDates] = useRecoilState(datesStateAtom)
+  const currentUser = useRecoilValue(currentUserStateAtom)
+
 
   useEffect(() => {
-    fetch('/dayts')
-      .then(r => r.json())
-      .then(setDates)
-  }, [])
+    if(currentUser) {
+      fetch('/dayts')
+        .then(r => r.json())
+        .then(setDates)
+    }
+  }, [currentUser])
 
   // const cards = dates.map(date => (
   //   <DateCard key={date.id} date={date} />
