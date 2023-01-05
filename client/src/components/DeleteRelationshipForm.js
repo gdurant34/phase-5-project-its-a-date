@@ -26,7 +26,7 @@ function DeleteRelationshipForm({ relationship, open, setOpen }) {
     return (
         <section>
             <div>
-                Are you sure you want to delete this activity?
+                Are you sure you want to delete this relationship?
             </div>
             <button onClick={handleDelete}>Yes</button>
             <button onClick={handleCancel}>Cancel</button>

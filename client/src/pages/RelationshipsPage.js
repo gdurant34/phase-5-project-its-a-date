@@ -25,8 +25,6 @@ function RelationshipsPage() {
         <Modal open={open} onClose={onCloseModal} center>
           <NewRelationshipForm />
         </Modal>
-        <br/>
-        <button>Delete Relationship</button>
       </section>
     </div>
   );
