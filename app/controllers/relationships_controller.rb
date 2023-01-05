@@ -14,6 +14,7 @@ class RelationshipsController < ApplicationController
 
     def create
         relationship = Relationship.create!(relationship_params)
+        current_user.relationships << relationship
         render json: relationship, status: :created
     end
 
