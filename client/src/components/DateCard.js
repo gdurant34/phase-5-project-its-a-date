@@ -42,7 +42,7 @@ function DateCard({ date }) {
             </section>
             <section>
                 <button id='add-activity-btn' className='card-btns' onClick={handleAddActivityModal}>Add Activity</button>
-                <Modal classNames='add-avtivity-modal' open={openAddActivity} onClose={handleAddActivityModal} center>
+                <Modal classNames='add-activity-modal' open={openAddActivity} onClose={handleAddActivityModal} center>
                     <DropdownActivityToDate date={date} setOpen={setOpenAddActivity} open={openAddActivity} />
                 </Modal>
             </section>
